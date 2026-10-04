@@ -18,10 +18,10 @@
 ## 8. Clear screen:
 * clear                    # Ctrl + L
 
-# 9. List partitions:
+## 9. List partitions:
 * lsblk
 
-# 10. Create partitions:
+## 10. Create partitions:
 * cfdisk /dev/sda
   	Select label type: gpt
 
@@ -39,33 +39,32 @@
 
   	Write * yes * Quit
 
-# 11. Format partitions:
+## 11. Format partitions:
 * mkfs.ext4 -L nixos /dev/sda3
 * mkswap -L swap /dev/sda2
 * mkfs.fat -F 32 -n boot /dev/sda1
 
-# 12. Mount partitions:
+## 12. Mount partitions:
 * mount /dev/sda3 /mnt/
 * mount --mkdir /dev/sda1 /mnt/boot/
 * swapon /dev/sda2
 * mount -t efivarfs efivarfs /sys/firmware/efi/efivarfs/
 
-# 13. Verify partitions:
+## 13. Verify partitions:
 * lsblk
 
-# 14. Generate config:
+## 14. Generate config:
 * nixos-generate-config --root /mnt/
 
-# 15. Configure:
+## 15. Configure:
 * nano /mnt/etc/nixos/configuration.nix
   	See configuration.nix
 
-# 16. Install:
+## 16. Install:
 * nixos-install
-# Password:
-  	New password:
+    New password:
   	Retype new password:
 * nixos-enter --root /mnt/ -c 'passwd user'
 
-# 17. Reboot:
+## 17. Reboot:
 reboot
