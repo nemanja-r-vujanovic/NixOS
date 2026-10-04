@@ -23,21 +23,21 @@
 
 ## 10. Create partitions:
 * cfdisk /dev/sda
-  	Select label type: gpt
+  	* Select label type: gpt
 
-  	New
-  	Partition size: 512M
-  	Type: EFI System
+  	* New
+  	* Partition size: 512M
+  	* Type: EFI System
 
-  	New
-  	Partition size: 4G
-  	Type: Linux swap
+  	* New
+  	* Partition size: 4G
+  	* Type: Linux swap
 
-  	New
-  	Partition size: maxG
-  	Type: Linux filesystem
+  	* New
+  	* Partition size: maxG
+  	* Type: Linux filesystem
 
-  	Write * yes * Quit
+  	* Write * yes * Quit
 
 ## 11. Format partitions:
 * mkfs.ext4 -L nixos /dev/sda3
@@ -58,12 +58,12 @@
 
 ## 15. Configure:
 * nano /mnt/etc/nixos/configuration.nix
-  	See configuration.nix
+  	* See configuration.nix
 
 ## 16. Install:
 * nixos-install
-    New password:
-  	Retype new password:
+    * New password:
+  	* Retype new password:
 * nixos-enter --root /mnt/ -c 'passwd user'
 
 ## 17. Reboot:
