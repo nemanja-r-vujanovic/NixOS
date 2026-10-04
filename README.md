@@ -37,7 +37,7 @@
   	* Partition size: maxG
   	* Type: Linux filesystem
 
-  	* Write * yes * Quit
+  	* Write → yes → Quit
 
 ## 11. Format partitions:
 * mkfs.ext4 -L nixos /dev/sda3
