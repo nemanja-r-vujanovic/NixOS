@@ -1,0 +1,69 @@
+1. https://nixos.org/download/
+2. NixOS: the Linux distribution
+3. Download (64-bit Intel/AMD)
+4. Boot in EFI
+
+# Font:
+→ setfont ter-132b
+→ sudo loadkeys sr-latin
+
+# Connection:
+→ ping -c 3 www.google.com # Wi-Fi connection: nmtui
+
+# Superuser:
+→ sudo -i
+
+# Clear screen:
+→ clear                    # Ctrl + L
+
+# List partitions:
+→ lsblk
+
+# Create partitions:
+→ cfdisk /dev/sda
+  	Select label type: gpt
+
+  	New
+  	Partition size: 512M
+  	Type: EFI System
+
+  	New
+  	Partition size: 4G
+  	Type: Linux swap
+
+  	New
+  	Partition size: maxG
+  	Type: Linux filesystem
+
+  	Write → yes → Quit
+
+# Format partitions:
+→ mkfs.ext4 -L nixos /dev/sda3
+→ mkswap -L swap /dev/sda2
+→ mkfs.fat -F 32 -n boot /dev/sda1
+
+# Mount partitions:
+→ mount /dev/sda3 /mnt/
+→ mount --mkdir /dev/sda1 /mnt/boot/
+→ swapon /dev/sda2
+→ mount -t efivarfs efivarfs /sys/firmware/efi/efivarfs/
+
+# Verify partitions:
+→ lsblk
+
+# Generate NixOS config:
+→ nixos-generate-config --root /mnt/
+
+# Configure NixOS:
+→ nano /mnt/etc/nixos/configuration.nix
+  	See configuration.nix
+
+# Install NixOS:
+→ nixos-install
+# Password:
+  	New password:
+  	Retype new password:
+→ nixos-enter --root /mnt/ -c 'passwd user'
+
+# Reboot NixOS:
+reboot
