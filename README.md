@@ -68,3 +68,7 @@
 
 ## 17. Reboot:
 reboot
+
+## 18. Maintenance:
+* sudo featherpad /etc/nixos/configuration.nix
+* sudo nixos-rebuild switch
