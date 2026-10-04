@@ -72,3 +72,7 @@ reboot
 ## 18. Maintenance:
 * sudo featherpad /etc/nixos/configuration.nix
 * sudo nixos-rebuild switch
+
+* sudo nix-env --delete-generations old
+* sudo nix-collect-garbage -d
+* sudo nixos-rebuild boot
