@@ -87,6 +87,9 @@
     chromium
     btop
     xwallpaper
+    zip
+    unzip
+    7zip
   ];
 
   # Automatic garbage collection:
