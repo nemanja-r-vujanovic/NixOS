@@ -84,6 +84,7 @@
   environment.systemPackages = [
     pkgs."vim"
     pkgs."alacritty"
+    pkgs."git"
     pkgs."chromium"
     pkgs."btop"
     pkgs."xwallpaper"
