@@ -36,8 +36,9 @@
   services.xserver = {
     enable = true;
 
+    # desktopManager.lxqt.enable = true;
+    windowManager.i3.enable = true;
     displayManager.lightdm.enable = true;
-    desktopManager.lxqt.enable = true;
 
     xkb = {
       layout = "me";
@@ -77,8 +78,7 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    nano
-    featherpad
+    vim
     chromium
   ];
 
