@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 echo -n "set number
-set wrap" > ~/.vimrc
+set wrap" > "$HOME/.vimrc"
 
-rm ~/.viminfo
+rm "$HOME/.viminfo"
