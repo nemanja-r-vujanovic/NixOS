@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-mkdir ~/.config/alacritty/
+mkdir "$HOME/.config/alacritty/"
 echo -n "[font]
-size = 30" > ~/.config/alacritty/alacritty.toml
+size = 30" > "$HOME/.config/alacritty/alacritty.toml"
 
-sed -i 's/exec i3-sensible-terminal/exec alacritty/g' ~/.config/i3/config
+sed -i 's/exec i3-sensible-terminal/exec alacritty/g' "$HOME/.config/i3/config"
 
 echo "Press Enter to exit."
 echo "Then reload configs: Super + Shift + C"
