@@ -1,0 +1,35 @@
+vim "file.txt"     = Open file
+Esc                = Normal mode
+i                  = Insert mode
+:saveas "file.txt" = Save as
+:w                 = Save
+:wq                = Close with saving
+:q!                = Close without saving
+u                  = Undo
+Ctrl+r             = Redo
+/word              = Find (n = next; N = previous)
+y                  = Copy
+d                  = Cut
+2yy                = Copy 2 lines
+2dd                = Cut 2 lines
+p                  = Paste
+x                  = Delete char
+D                  = Delete line
+v                  = Select
+V                  = Select lines
+Ctrl+v             = Select rectangular
+ggVG               = Select all
+gg                 = Beginning of file
+G                  = End of file
+:123               = Jump to line 123
+:vsplit "file.txt" = Side-by-side file (Ctrl+w h = Left, Ctrl+w l = Right, Ctrl-w q = Close)
+:term              = Terminal bottom (Ctrl+w Shift+J = Top)
+U                  = Uppercase
+u                  = Lowercase
+~                  = Toggle case of selected char
+:%s/old/new/       = Replace first occurrence
+:%s/old/new/g      = Replace all occurrences in the entire file
+:sort              = Sort selected
+:sort!             = Reverse sort selected
+:%sort             = Sort entire file
+:%sort!            = Reverse sort entire file
