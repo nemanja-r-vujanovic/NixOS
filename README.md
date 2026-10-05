@@ -63,13 +63,22 @@
 ## 16. Install:
 * nixos-install
     * New password:
-  	* Retype new password:
+  	 * Retype new password:
 * nixos-enter --root /mnt/ -c 'passwd user'
 
 ## 17. Reboot:
 systemctl reboot
 
-## 18. Maintenance:
+## 18. First boot:
+* Super + D
+* alacritty
+* Ctrl + +
+* git clone https://github.com/nemanja-r-vujanovic/NixOS.git
+* cd "$HOME/NixOS/"
+* chmod +x *".sh"
+* ./"1_run.sh"
+
+## 19. Maintenance:
 * sudo featherpad /etc/nixos/configuration.nix
     * sudo nixos-rebuild switch
 
