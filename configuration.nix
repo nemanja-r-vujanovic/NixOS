@@ -40,7 +40,7 @@
     windowManager.i3.enable = true;
     displayManager.lightdm.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Wallpapers/wallpaper.jpg
+      xwallpaper --zoom ~/Wallpapers/1.png
       xset r rate 200 35 &
     '';
 
