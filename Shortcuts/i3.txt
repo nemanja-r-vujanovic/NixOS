@@ -1,7 +1,13 @@
 Super + Enter     = Open terminal
-Super + Shift + Q = Close terminal
-Shift + +         = Increase font
-Shift + -         = Decrease font
+
+Shift + +         = Increase font (i3)
+Shift + -         = Decrease font (i3)
+Ctrl + +          = Increase font (alacritty)
+Ctrl + -          = Decrease font (alacritty)
+
 Super + D         = Run prompt
 Super + 2         = New workspace
+
 Alt + F4          = Close app
+Super + Shift + Q = Close terminal
+Ctrl + Q          = Close pcmanfm
