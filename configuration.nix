@@ -39,6 +39,10 @@
     # desktopManager.lxqt.enable = true;
     windowManager.i3.enable = true;
     displayManager.lightdm.enable = true;
+    displayManager.sessionCommands = ''
+      xwallpaper --zoom ~/Wallpapers/wallpaper.jpg
+      xset r rate 200 35 &
+    '';
 
     xkb = {
       layout = "me";
@@ -73,7 +77,7 @@
     ];
   };
 
-  # programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -81,6 +85,8 @@
     vim
     alacritty
     chromium
+    btop
+    xwallpaper
   ];
 
   # Automatic garbage collection:
