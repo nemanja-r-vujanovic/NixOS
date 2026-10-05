@@ -90,6 +90,8 @@
     zip
     unzip
     7zip
+    pcmanfm
+    rofi
   ];
 
   # Automatic garbage collection:
