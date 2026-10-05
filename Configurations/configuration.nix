@@ -81,17 +81,17 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    vim
-    alacritty
-    chromium
-    btop
-    xwallpaper
-    zip
-    unzip
-    7zip
-    pcmanfm
-    rofi
+  environment.systemPackages = [
+    pkgs."vim"
+    pkgs."alacritty"
+    pkgs."chromium"
+    pkgs."btop"
+    pkgs."xwallpaper"
+    pkgs."zip"
+    pkgs."unzip"
+    pkgs."p7zip"
+    pkgs."pcmanfm"
+    pkgs."rofi"
   ];
 
   # Automatic garbage collection:
