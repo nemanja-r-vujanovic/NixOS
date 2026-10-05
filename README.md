@@ -57,8 +57,8 @@
 * nixos-generate-config --root /mnt/
 
 ## 15. Configure:
-* nano /mnt/etc/nixos/configuration.nix
-  	* See configuration.nix
+* git clone https://github.com/nemanja-r-vujanovic/NixOS.git
+* cp NixOS/Configurations/configuration.nix /mnt/etc/nixos/configuration.nix
 
 ## 16. Install:
 * nixos-install
@@ -67,7 +67,7 @@
 * nixos-enter --root /mnt/ -c 'passwd user'
 
 ## 17. Reboot:
-reboot
+systemctl reboot
 
 ## 18. Maintenance:
 * sudo featherpad /etc/nixos/configuration.nix
