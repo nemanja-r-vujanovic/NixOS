@@ -19,11 +19,11 @@ v                  = Select
 V                  = Select lines
 Ctrl+v             = Select rectangular
 ggVG               = Select all
-gg                 = Beginning of file
-G                  = End of file
+gg                 = Jump to first line
+G                  = Jump to last line
 :123               = Jump to line 123
-:vsplit "file.txt" = Side-by-side file (Ctrl+w h = Left, Ctrl+w l = Right, Ctrl-w q = Close)
-:term              = Terminal bottom (Ctrl+w Shift+J = Top)
+:vsplit "file.txt" = Side-by-side file (Ctrl + W, H = Left; Ctrl + W, L = Right; Ctrl + W, Q = Close)
+:term              = Terminal bottom (Ctrl + W, Shift + J = Top)
 U                  = Uppercase
 u                  = Lowercase
 ~                  = Toggle case of selected char
