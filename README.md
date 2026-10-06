@@ -79,7 +79,7 @@ systemctl reboot
 * ./"1_run.sh"
 
 ## 19. Maintenance:
-* sudo featherpad /etc/nixos/configuration.nix
+* sudo vim /etc/nixos/configuration.nix
     * sudo nixos-rebuild switch
 
 * sudo nix-env --delete-generations old
