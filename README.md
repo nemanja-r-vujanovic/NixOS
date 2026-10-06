@@ -58,7 +58,7 @@
 
 ## 15. Configure:
 * git clone https://github.com/nemanja-r-vujanovic/NixOS.git
-* cp NixOS/Configurations/configuration.nix /mnt/etc/nixos/configuration.nix
+* cp NixOS/Configurations/configuration.nix /mnt/etc/nixos/
 
 ## 16. Install:
 * nixos-install
