@@ -10,19 +10,19 @@
 * sudo loadkeys sr-latin
 
 ## 6. Connection:
-* ping -c 3 www.google.com # Wi-Fi connection: nmtui
+* ping -c 3 "www.google.com" # Wi-Fi connection: nmtui
 
 ## 7. Superuser:
 * sudo -i
 
 ## 8. Clear screen:
-* clear                    # Ctrl + L
+* clear                      # Ctrl + L
 
 ## 9. List partitions:
 * lsblk
 
 ## 10. Create partitions:
-* cfdisk /dev/sda
+* cfdisk "/dev/sda"
     * Select label type: gpt
 
   	* New
@@ -40,31 +40,31 @@
   	* Write → yes → Quit
 
 ## 11. Format partitions:
-* mkfs.ext4 -L nixos /dev/sda3
-* mkswap -L swap /dev/sda2
-* mkfs.fat -F 32 -n boot /dev/sda1
+* mkfs.ext4 -L nixos "/dev/sda3"
+* mkswap -L swap "/dev/sda2"
+* mkfs.fat -F 32 -n boot "/dev/sda1"
 
 ## 12. Mount partitions:
-* mount /dev/sda3 /mnt/
-* mount --mkdir /dev/sda1 /mnt/boot/
-* swapon /dev/sda2
-* mount -t efivarfs efivarfs /sys/firmware/efi/efivarfs/
+* mount "/dev/sda3" "/mnt/"
+* mount --mkdir "/dev/sda1" "/mnt/boot/"
+* swapon "/dev/sda2"
+* mount -t efivarfs efivarfs "/sys/firmware/efi/efivarfs/"
 
 ## 13. Verify partitions:
 * lsblk
 
 ## 14. Generate config:
-* nixos-generate-config --root /mnt/
+* nixos-generate-config --root "/mnt/"
 
 ## 15. Configure:
-* git clone https://github.com/nemanja-r-vujanovic/NixOS.git
-* cp NixOS/Configurations/configuration.nix /mnt/etc/nixos/
+* git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
+* cp "NixOS/Configurations/configuration.nix" "/mnt/etc/nixos/"
 
 ## 16. Install:
 * nixos-install
     * New password:
   	 * Retype new password:
-* nixos-enter --root /mnt/ -c 'passwd user'
+* nixos-enter --root "/mnt/" -c 'passwd user'
 
 ## 17. Reboot:
 systemctl reboot
@@ -73,15 +73,15 @@ systemctl reboot
 * Super + D
 * alacritty
 * Ctrl + +
-* git clone https://github.com/nemanja-r-vujanovic/NixOS.git
+* git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * cd "$HOME/NixOS/"
 * chmod +x *".sh"
 * ./"1_run.sh"
 
 ## 19. Maintenance:
-* sudo vim /etc/nixos/configuration.nix
+* sudo vim "/etc/nixos/configuration.nix"
     * sudo nixos-rebuild switch
 
-* sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +3
+* sudo nix-env --profile "/nix/var/nix/profiles/system" --delete-generations +3
     * sudo nix-collect-garbage
     * sudo nixos-rebuild boot
