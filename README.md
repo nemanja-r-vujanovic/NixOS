@@ -82,6 +82,6 @@ systemctl reboot
 * sudo vim /etc/nixos/configuration.nix
     * sudo nixos-rebuild switch
 
-* sudo nix-env --delete-generations old
-    * sudo nix-collect-garbage -d
+* sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +3
+    * sudo nix-collect-garbage
     * sudo nixos-rebuild boot
