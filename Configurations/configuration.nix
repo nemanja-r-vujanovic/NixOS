@@ -46,6 +46,11 @@
     ''
       xwallpaper --zoom "$HOME/Wallpapers/1.png"
       xset r rate 200 35 &
+
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+        Xcursor.theme: Vanilla-DMZ
+        Xcursor.size: 48
+      EOF
     '';
 
     xkb =
@@ -101,6 +106,12 @@
     pkgs."pcmanfm"
     pkgs."rofi"
   ];
+
+  environment.variables =
+  {
+    XCURSOR_THEME = "Vanilla-DMZ";
+    XCURSOR_SIZE = "48";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
