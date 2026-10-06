@@ -8,7 +8,7 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./"hardware-configuration.nix"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -54,10 +54,6 @@
       variant = "latinalternatequotes";
     };
   };
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
