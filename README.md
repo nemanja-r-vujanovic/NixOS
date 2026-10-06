@@ -16,7 +16,7 @@
 * sudo -i
 
 ## 8. Clear screen:
-* clear                      # Ctrl + L
+* Ctrl + L                   # clear
 
 ## 9. List partitions:
 * lsblk
@@ -40,9 +40,9 @@
   	* Write → yes → Quit
 
 ## 11. Format partitions:
-* mkfs.ext4 -L nixos "/dev/sda3"
-* mkswap -L swap "/dev/sda2"
-* mkfs.fat -F 32 -n boot "/dev/sda1"
+* mkfs.ext4 -L "nixos" "/dev/sda3"
+* mkswap -L "swap" "/dev/sda2"
+* mkfs.fat -F 32 -n "boot" "/dev/sda1"
 
 ## 12. Mount partitions:
 * mount "/dev/sda3" "/mnt/"
