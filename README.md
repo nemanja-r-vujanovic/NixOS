@@ -68,7 +68,7 @@
 
 ## 17. Reboot:
 * swapoff -a
-* umount -R /mnt
+* umount -R "/mnt"
 * systemctl reboot
 
 ## 18. First boot:
