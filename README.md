@@ -87,3 +87,5 @@
 * sudo nix-env --profile "/nix/var/nix/profiles/system" --delete-generations +3
     * sudo nix-collect-garbage
     * sudo nixos-rebuild boot
+
+* sudo nixos-rebuild switch --upgrade # Similar to "sudo pacman -Syu" in Arch
