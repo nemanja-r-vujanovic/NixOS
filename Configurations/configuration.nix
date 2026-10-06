@@ -44,7 +44,7 @@
     displayManager.lightdm.enable = true;
     displayManager.sessionCommands =
     ''
-      xwallpaper --zoom ~/Wallpapers/1.png
+      xwallpaper --zoom "$HOME/Wallpapers/1.png"
       xset r rate 200 35 &
     '';
 
