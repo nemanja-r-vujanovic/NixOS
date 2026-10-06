@@ -88,4 +88,4 @@
     * sudo nix-collect-garbage
     * sudo nixos-rebuild boot
 
-* sudo nixos-rebuild switch --upgrade # Similar to "sudo pacman -Syu" in Arch
+* sudo nixos-rebuild switch --upgrade # Similar to "sudo pacman -Syu" on Arch
