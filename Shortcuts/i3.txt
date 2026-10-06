@@ -7,6 +7,8 @@ Ctrl + -          = Decrease font (alacritty)
 
 Super + D         = Run prompt
 Super + 2         = New workspace
+Super + Left      = Switch to left window
+Super + Right     = Switch to right window
 
 Alt + F4          = Close app
 Super + Shift + Q = Close terminal
