@@ -124,7 +124,7 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH.
+  # SSH intentionally disabled.
   services.openssh.enable = false;
 
   # Enable the firewall.
