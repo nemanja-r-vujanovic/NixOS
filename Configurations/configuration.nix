@@ -97,6 +97,7 @@
     pkgs."zip"
     pkgs."unzip"
     pkgs."p7zip"
+    pkgs."vanilla-dmz"
     pkgs."pcmanfm"
     pkgs."rofi"
   ];
