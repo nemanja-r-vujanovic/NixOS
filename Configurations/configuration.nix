@@ -105,6 +105,7 @@
     pkgs."vanilla-dmz"
     pkgs."pcmanfm"
     pkgs."rofi"
+    pkgs."pfetch"
   ];
 
   environment.variables =
