@@ -67,7 +67,9 @@
 * nixos-enter --root "/mnt/" -c 'passwd user'
 
 ## 17. Reboot:
-systemctl reboot
+* swapoff -a
+* umount -R /mnt
+* systemctl reboot
 
 ## 18. First boot:
 * Super + D
