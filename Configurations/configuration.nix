@@ -27,24 +27,28 @@
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
-  console = {
+  console =
+  {
     font = "ter-132b";
     packages = with pkgs; [ terminus_font ];
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
+  services.xserver =
+  {
     enable = true;
 
     # desktopManager.lxqt.enable = true;
     windowManager.i3.enable = true;
     displayManager.lightdm.enable = true;
-    displayManager.sessionCommands = ''
+    displayManager.sessionCommands =
+    ''
       xwallpaper --zoom ~/Wallpapers/1.png
       xset r rate 200 35 &
     '';
 
-    xkb = {
+    xkb =
+    {
       layout = "me";
       variant = "latinalternatequotes";
     };
@@ -60,7 +64,8 @@
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
+  # services.pipewire =
+  # {
   #   enable = true;
   #   pulse.enable = true;
   # };
@@ -69,10 +74,12 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.user = {
+  users.users.user =
+  {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
+    packages = with pkgs;
+    [
       tree
     ];
   };
@@ -81,7 +88,8 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = [
+  environment.systemPackages =
+  [
     pkgs."vim"
     pkgs."alacritty"
     pkgs."git"
@@ -96,7 +104,8 @@
   ];
 
   # Automatic garbage collection:
-  nix.gc = {
+  nix.gc =
+  {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
@@ -105,7 +114,8 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
+  # programs.gnupg.agent =
+  # {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
@@ -116,7 +126,8 @@
   services.openssh.enable = false;
 
   # Enable the firewall.
-  networking.firewall = {
+  networking.firewall =
+  {
     enable = true;
     allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
