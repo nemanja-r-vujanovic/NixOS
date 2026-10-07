@@ -1,15 +1,23 @@
-Super + Enter     = Open terminal
+Super + Enter         = Open terminal
 
-Shift + +         = Increase font (i3)
-Shift + -         = Decrease font (i3)
-Ctrl + +          = Increase font (alacritty)
-Ctrl + -          = Decrease font (alacritty)
+Shift + +             = Increase font (i3)
+Shift + -             = Decrease font (i3)
+Ctrl + +              = Increase font (alacritty)
+Ctrl + -              = Decrease font (alacritty)
 
-Super + D         = Run prompt
-Super + 2         = New workspace
-Super + Left      = Switch to left window
-Super + Right     = Switch to right window
+Super + D             = Run prompt
+Super + 2             = New workspace
+Super + Left          = Switch to left window
+Super + Right         = Switch to right window
 
-Alt + F4          = Close app
-Super + Shift + Q = Close terminal
-Ctrl + Q          = Close pcmanfm
+Alt + F4              = Close app
+Ctrl + Q              = Close pcmanfm
+
+Super + Shift + Q     = Close terminal
+Super + Shift + Left  = Move window to left
+Super + Shift + Right = Move window to right
+Super + Shift + Up    = Move window to top
+Super + Shift + Down  = Move window to bottom
+Super + Shift + 2     = Move window to workspace 2
+Super + Shift + Space = Toggle tiling
+Super + Shift + R     = Restart i3
