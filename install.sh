@@ -88,7 +88,7 @@ mkswap -L "swap" "$P2"         # Swap
 mkfs.ext4 -F -L "nixos" "$P3"  # Root
 
 # Mount partitions:
-mount "$P3" "/mnt/"
+mount -t ext4 "$P3" "/mnt/"
 mount --mkdir "$P1" "/mnt/boot/"
 swapon "$P2"
 
