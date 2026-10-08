@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-rm -r "Configurations/"
-mv "Wallpapers/" "$HOME/"
+rm -r "../Configurations/"
+mv "../Wallpapers/" "$HOME/"
 
 ./"vim.sh"
 ./"alacritty.sh"
