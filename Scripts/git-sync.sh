@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p "$HOME/nixos-sync"
+mkdir -p "$HOME/nixos-sync/"
 
 mv "$HOME/.vimrc" "$HOME/nixos-sync"
 mv "$HOME/.config/alacritty" "$HOME/nixos-sync"
