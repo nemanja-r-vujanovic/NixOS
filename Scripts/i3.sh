@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+mkdir -p "$HOME/.config/i3/"
 sed -i 's/exec i3-sensible-terminal/exec alacritty/g' "$HOME/.config/i3/config"
 
 echo "bindsym $mod+c exec chromium
