@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir "$HOME/.config/i3status"
+mkdir -p "$HOME/.config/i3status"
 
 cat > "$HOME/.config/i3status/config" <<'EOF'
 general
