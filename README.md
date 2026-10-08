@@ -20,7 +20,7 @@
 * alacritty
 * Ctrl + +
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
-* cd "$HOME/NixOS/"
+* cd "$HOME/NixOS/Scripts/"
 * chmod +x *".sh"
 * ./"1_run.sh"
 
