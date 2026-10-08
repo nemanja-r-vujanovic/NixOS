@@ -7,6 +7,8 @@ read Enter
 
 rofi -show drun
 
+mkdir -p "$HOME/.config/rofi/"
+
 echo -n -e "\n
 configuration
 {
