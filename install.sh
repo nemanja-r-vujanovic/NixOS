@@ -86,7 +86,6 @@ mkfs.ext4 -F -L "nixos" "$P3"  # Root
 mount "$P3" "/mnt/"
 mount --mkdir "$P1" "/mnt/boot/"
 swapon "$P2"
-mount -t efivarfs efivarfs "/sys/firmware/efi/efivarfs/"
 
 lsblk "$disk"                  # Show result
 
@@ -105,7 +104,7 @@ nixos-install
 # New password:
 # Retype new password:
 
-echo -n "Enter username from configuration.nix (example: user): "
+echo -n -e "\nEnter username from configuration.nix (example: user): "
 read username
 nixos-enter --root "/mnt/" -c "passwd $username"
 
