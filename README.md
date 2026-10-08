@@ -2,7 +2,7 @@
 
 ## 1. https://nixos.org/download/
 ## 2. NixOS: the Linux distribution
-## 3. Download (64-bit Intel/AMD)
+## 3. Minimal ISO image (Download (64-bit Intel/AMD))
 ## 4. Boot in EFI
 
 ## 5. Font:
