@@ -44,7 +44,7 @@
     displayManager.lightdm.enable = true;
     displayManager.sessionCommands =
     ''
-      xwallpaper --zoom "$HOME/Wallpapers/1.png"
+      xwallpaper --zoom "$HOME/Wallpapers/1.jpg"
       xset r rate 200 35 &
 
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
