@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir "$HOME/.config/alacritty/"
+mkdir -p "$HOME/.config/alacritty/"
 echo -n "[font]
 size = 30" > "$HOME/.config/alacritty/alacritty.toml"
 
