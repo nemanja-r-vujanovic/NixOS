@@ -31,7 +31,7 @@ echo -n "Enter disk (example: /dev/sda or /dev/nvme0n1): "
 read disk
 
 echo -e "\nWARNING: ALL DATA ON $disk WILL BE DESTROYED!"
-echo "Type Y to continue: "
+echo -n "Type Y to continue: "
 read confirm
 
 if [[ "Y" != "$confirm" && "y" != "$confirm" ]]; then
