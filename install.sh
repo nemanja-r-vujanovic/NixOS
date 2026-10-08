@@ -21,12 +21,17 @@ else
 fi
 
 # 4. Clear screen:
-clear # Ctrl + L
+clear                          # Ctrl + L
 
 # 5. List partitions:
 lsblk
 
 # 6. Create partitions:
+if [[ ! -d /sys/firmware/efi ]]; then
+	echo "ERROR: UEFI mode required!"
+	exit 1
+fi
+
 echo -n "Enter disk (example: /dev/sda or /dev/nvme0n1): "
 read disk
 
