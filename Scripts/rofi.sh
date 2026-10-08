@@ -6,3 +6,9 @@ echo "Press: 'Alt + A'"
 read Enter
 
 rofi -show drun
+
+echo -n -e "\n
+configuration
+{
+    font: "DejaVu Sans 20";
+}" >> "$HOME/.config/rofi/config.rasi"
