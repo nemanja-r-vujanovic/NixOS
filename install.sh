@@ -101,8 +101,9 @@ sleep 30
 nixos-generate-config --root "/mnt/"
 
 # 8. Configure:
-git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/nixos-config/"
-cp "/tmp/nixos-config/Configurations/configuration.nix" "/mnt/etc/nixos/configuration.nix"
+git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
+cp "/tmp/NixOS/Configurations/configuration.nix" "/mnt/etc/nixos/"
+mv "/tmp/NixOS/" "/mnt/home/user/"
 
 # 9. Install:
 nixos-install
