@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-mkdir "$HOME/.config/i3status/"
+mkdir "$HOME/.config/i3status"
 
-echo -n "general
+cat > "$HOME/.config/i3status/config" <<'EOF'
+general
 {
     interval = 1
 }
@@ -18,4 +19,5 @@ battery all
 tztime local
 {
     format = "%d.%m.%Y. | %H:%M:%S"
-}" > "$HOME/.config/i3status/config"
+}
+EOF
