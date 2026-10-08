@@ -5,7 +5,8 @@ mv "../Wallpapers/" "$HOME/"
 
 ./"vim.sh"
 ./"alacritty.sh"
-./"rofi.sh"
-./"git-sync.sh"
 ./"i3.sh"
 ./"i3status.sh"
+./"rofi.sh"
+# ...
+./"git-sync.sh"
