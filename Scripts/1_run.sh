@@ -10,3 +10,5 @@ mv "../Wallpapers/" "$HOME/"
 ./"rofi.sh"
 # ...
 ./"git-sync.sh"
+
+systemctl reboot
