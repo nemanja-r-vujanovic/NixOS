@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 mkdir "$HOME/.config/alacritty/"
-echo -n "[font]
+echo -n "[window]
+opacity = 0.9
+
+[font]
 size = 30" > "$HOME/.config/alacritty/alacritty.toml"
 
 echo "Press Enter to exit."
