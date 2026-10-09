@@ -2,5 +2,3 @@
 
 echo -n "set number
 set wrap" > "$HOME/.vimrc"
-
-rm "$HOME/.viminfo"
