@@ -17,4 +17,8 @@ bar
 }
 EOF
 
+echo "Delete old: bar {}"
+echo -n "Press Enter to exit."
+read Enter
+
 vim "$HOME/.config/i3/config"
