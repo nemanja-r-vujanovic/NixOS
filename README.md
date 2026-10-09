@@ -11,6 +11,5 @@
 
 ## 6. Installation:
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
-* cd "NixOS/"
-* chmod +x "install.sh"
-* sudo ./"install.sh"
+* chmod +x "NixOS/install.sh"
+* sudo ./"NixOS/install.sh"
