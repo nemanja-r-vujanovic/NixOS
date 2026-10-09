@@ -5,6 +5,7 @@
 ./"i3.sh"
 ./"i3status.sh"
 ./"rofi.sh"
+./"pcmanfm.sh"
 # ...
 ./"git-sync.sh"
 
