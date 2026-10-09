@@ -19,17 +19,6 @@
 * Super + D
 * alacritty
 * Ctrl + +
-* git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
-* cd "$HOME/NixOS/Scripts/"
+* cd "$HOME/Scripts/"
 * chmod +x *".sh"
 * ./"1_run.sh"
-
-## 8. Maintenance:
-* sudo vim "/etc/nixos/configuration.nix"
-    * sudo nixos-rebuild switch
-
-* sudo nix-env --profile "/nix/var/nix/profiles/system" --delete-generations +3
-    * sudo nix-collect-garbage
-    * sudo nixos-rebuild boot
-
-* sudo nixos-rebuild switch --upgrade # Similar to "sudo pacman -Syu" on Arch
