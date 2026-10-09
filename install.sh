@@ -121,17 +121,14 @@ nixos-enter --root "/mnt/" -c "passwd $username"
 # 10. Personal files:
 mkdir -p "/mnt/home/$username/"
 mv "/tmp/NixOS/" "/mnt/home/$username/"
+mv "/mnt/home/$username/NixOS/first-boot.md" "/mnt/home/$username/"
 
 mkdir -p "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/nixos-sync/"
 
-rm -r "/mnt/home/$username/NixOS/Configurations/"
-rm -r "/mnt/home/$username/NixOS/Shortcuts/"
-rm "/mnt/home/$username/NixOS/README.md"
-rm "/mnt/home/$username/NixOS/install.sh"
-mv "/mnt/home/$username/NixOS/first-boot.md" "/mnt/home/$username/"
+rm -r "/mnt/home/$username/NixOS/"
 
 # Fix ownership:
 nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
