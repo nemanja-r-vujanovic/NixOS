@@ -123,8 +123,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   # SSH intentionally disabled.
   services.openssh.enable = false;
 
