@@ -8,4 +8,5 @@
 # ...
 ./"git-sync.sh"
 
+rm "$HOME/first-boot.md"
 systemctl reboot
