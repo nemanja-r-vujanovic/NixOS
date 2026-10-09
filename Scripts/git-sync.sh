@@ -15,4 +15,7 @@ ln -sT "$HOME/nixos-sync/i3status" "$HOME/.config/i3status"
 ln -sT "$HOME/nixos-sync/rofi" "$HOME/.config/rofi"
 
 ls -la "$HOME/.config/"
+
+echo -n "Press Enter to exit."
 read Enter
+echo
