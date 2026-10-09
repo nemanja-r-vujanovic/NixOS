@@ -2,6 +2,6 @@
 * Super + D
 * alacritty
 * Ctrl + +
-* cd "$HOME/Scripts/"
+* cd "$HOME/nixos-sync/Scripts/"
 * chmod +x *".sh"
 * ./"1_run.sh"
