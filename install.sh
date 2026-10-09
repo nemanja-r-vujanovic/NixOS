@@ -126,6 +126,8 @@ rm "/mnt/home/$username/NixOS/README.md"
 rm "/mnt/home/$username/NixOS/install.sh"
 rm -r "/mnt/home/$username/NixOS/Configurations/"
 rm -r "/mnt/home/$username/NixOS/Shortcuts/"
+mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/"
+mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/"
 mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/"
 
 # Fix ownership:
