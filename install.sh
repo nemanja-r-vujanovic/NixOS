@@ -128,6 +128,9 @@ mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/nixos-sync/"
 
+chmod +x "/mnt/home/$username/nixos-sync/Scripts/"/*".sh"
+chmod +x "/mnt/home/$username/nixos-sync/Maintenance/"/*".sh"
+
 rm -r "/mnt/home/$username/NixOS/"
 
 # Fix ownership:
