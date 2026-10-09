@@ -128,8 +128,10 @@ rm "/mnt/home/$username/NixOS/README.md"
 rm "/mnt/home/$username/NixOS/install.sh"
 mv "/mnt/home/$username/NixOS/first-boot.md" "/mnt/home/$username/"
 mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/"
-mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/"
 mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/"
+
+mkdir -p "/mnt/home/$username/nixos-sync/Wallpapers/"
+mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/nixos-sync/Wallpapers/"
 
 # Fix ownership:
 nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
