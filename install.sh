@@ -123,6 +123,8 @@ mkdir -p "/mnt/home/$username/"
 mv "/tmp/NixOS/" "/mnt/home/$username/"
 
 mkdir -p "/mnt/home/$username/nixos-sync/"
+mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/nixos-sync/"
+mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/nixos-sync/"
 
 rm -r "/mnt/home/$username/NixOS/Configurations/"
