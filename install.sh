@@ -28,7 +28,7 @@ lsblk
 
 # 6. Create partitions:
 if [[ ! -d /sys/firmware/efi ]]; then
-	echo "ERROR: UEFI mode required!"
+	echo "UEFI mode required!"
 	exit 1
 fi
 
@@ -94,8 +94,8 @@ swapon "$P2"
 
 lsblk "$disk"                  # Show result
 
-echo -e "\nPartitioning completed.\nInstallation starts in 30 seconds..."
-sleep 30
+echo -e "\nPartitioning completed.\nInstallation starts in 15 seconds..."
+sleep 15
 
 # 7. Generate config:
 nixos-generate-config --root "/mnt/"
@@ -111,6 +111,11 @@ nixos-install
 
 echo -n -e "\nEnter username from configuration.nix (example: user): "
 read username
+if (( "${#username}" < 1 )); then
+	echo "Username is empty!"
+	exit 1
+fi
+
 nixos-enter --root "/mnt/" -c "passwd $username"
 
 # 10. Personal files:
