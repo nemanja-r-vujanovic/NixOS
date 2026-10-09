@@ -102,7 +102,7 @@ nixos-generate-config --root "/mnt/"
 
 # 8. Configure:
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
-mv "/tmp/NixOS/Configurations/configuration.nix" "/mnt/etc/nixos/"
+mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
 # 9. Install:
 nixos-install
@@ -124,12 +124,12 @@ mv "/tmp/NixOS/" "/mnt/home/$username/"
 mv "/mnt/home/$username/NixOS/first-boot.md" "/mnt/home/$username/"
 
 mkdir -p "/mnt/home/$username/nixos-sync/"
-mv "/mnt/home/$username/NixOS/Scripts/" "/mnt/home/$username/nixos-sync/"
-mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/nixos-sync/"
-mv "/mnt/home/$username/NixOS/Maintenance/" "/mnt/home/$username/nixos-sync/"
+mv "/mnt/home/$username/NixOS/scripts/" "/mnt/home/$username/nixos-sync/"
+mv "/mnt/home/$username/NixOS/wallpapers/" "/mnt/home/$username/nixos-sync/"
+mv "/mnt/home/$username/NixOS/maintenance/" "/mnt/home/$username/nixos-sync/"
 
-chmod +x "/mnt/home/$username/nixos-sync/Scripts/"*".sh"
-chmod +x "/mnt/home/$username/nixos-sync/Maintenance/"*".sh"
+chmod +x "/mnt/home/$username/nixos-sync/scripts/"*".sh"
+chmod +x "/mnt/home/$username/nixos-sync/maintenance/"*".sh"
 
 rm -r "/mnt/home/$username/NixOS/"
 
