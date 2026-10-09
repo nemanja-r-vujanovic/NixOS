@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-./"$HOME/nixos-sync/Scripts/vim.sh"
-./"$HOME/nixos-sync/Scripts/alacritty.sh"
-./"$HOME/nixos-sync/Scripts/i3.sh"
-./"$HOME/nixos-sync/Scripts/i3status.sh"
-./"$HOME/nixos-sync/Scripts/rofi.sh"
-./"$HOME/nixos-sync/Scripts/pcmanfm.sh"
+./"nixos-sync/Scripts/vim.sh"
+./"nixos-sync/Scripts/alacritty.sh"
+./"nixos-sync/Scripts/i3.sh"
+./"nixos-sync/Scripts/i3status.sh"
+./"nixos-sync/Scripts/rofi.sh"
+./"nixos-sync/Scripts/pcmanfm.sh"
 # ...
-./"$HOME/nixos-sync/Scripts/git-sync.sh"
+./"nixos-sync/Scripts/git-sync.sh"
 
 rm "$HOME/first-boot.md"
 systemctl reboot
