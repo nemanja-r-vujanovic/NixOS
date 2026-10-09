@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-rm -r "../Configurations/"
-mv "../Wallpapers/" "$HOME/"
-
 ./"vim.sh"
 ./"alacritty.sh"
 ./"i3.sh"
