@@ -113,7 +113,20 @@ echo -n -e "\nEnter username from configuration.nix (example: user): "
 read username
 nixos-enter --root "/mnt/" -c "passwd $username"
 
-# 10. Poweroff:
+# 10. Personal files:
+mkdir -p "/mnt/home/$username/"
+mv "/tmp/NixOS/" "/mnt/home/$username/"
+
+rm "/mnt/home/$username/NixOS/README.md"
+rm "/mnt/home/$username/NixOS/install.sh"
+rm -r "/mnt/home/$username/NixOS/Configurations/"
+rm -r "/mnt/home/$username/NixOS/Shortcuts/"
+mv "/mnt/home/$username/NixOS/Wallpapers/" "/mnt/home/$username/"
+
+# Fix ownership:
+nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
+
+# 11. Poweroff:
 swapoff -a
 umount -R "/mnt"
 systemctl poweroff
