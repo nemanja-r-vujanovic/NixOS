@@ -13,7 +13,6 @@ fi
 # Connection:
 if ! ping -q -c 1 "www.google.com" > /dev/null 2>&1; then
 	echo "Network: not connected!"
-	echo "Connect using nmtui."
 	exit 1
 fi
 
@@ -100,9 +99,9 @@ read confirm
 confirm_upper=$(echo "$confirm" | tr '[:lower:]' '[:upper:]')
 
 if [[ "$confirm_upper" == "YES" ]]; then
-	echo "Confirmation received. Continuing installation..."
+	echo -e "\nConfirmation received. Continuing installation..."
 else
-	echo "Installation aborted!"
+	echo -e "\nInstallation aborted!"
 	exit 1
 fi
 
