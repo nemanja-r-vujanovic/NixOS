@@ -95,7 +95,7 @@ fi
 
 # Password:
 echo -n "Enter password: "
-read password
+read -s password
 
 if (( "${#password}" < 1 )); then
 	echo "Password cannot be empty!"
@@ -104,7 +104,7 @@ fi
 
 # Confirm password:
 echo -n "Confirm password: "
-read confirm_password
+read -s confirm_password
 
 if [[ "$confirm_password" != "$password" ]]; then
 	echo "Passwords did not match!"
