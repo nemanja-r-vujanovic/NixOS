@@ -2,24 +2,99 @@
 set -euo pipefail
 
 # ------------------------------------------------------------------------------------------
-# 1. Superuser:
+# 1. Checks:
+
+# Superuser:
 if (( EUID != 0 )); then
 	echo "Run this script as root!"
 	exit 1
 fi
 
-# ------------------------------------------------------------------------------------------
-# 2. Font:
-setfont ter-132b
-loadkeys sr-latin
-
-# ------------------------------------------------------------------------------------------
-# 3. Connection:
+# Connection:
 if ping -qc 1 "www.google.com" > /dev/null 2>&1; then
 	echo "Network: already connected."
 else
 	echo "Network: not connected!"
 	echo "Connect using nmtui, then restart the script."
+	exit 1
+fi
+
+# UEFI boot:
+if [[ ! -d /sys/firmware/efi ]]; then
+	echo "UEFI mode required!"
+	exit 1
+fi
+
+# ------------------------------------------------------------------------------------------
+# 2. Font:
+
+setfont ter-132b
+loadkeys sr-latin
+
+# ------------------------------------------------------------------------------------------
+# 3. Inputs:
+
+# disk="/dev/sda"
+# timezone="Europe/Belgrade"
+# username="user"
+# hostname="$username"
+# confirm="YES"
+
+# Disk:
+echo -n "Enter disk (example: /dev/sda or /dev/nvme0n1): "
+read disk
+
+if [[ ! -b "$disk" ]]; then
+	echo "'$disk' is not a block device!"
+	exit 1
+fi
+if [[ "$(lsblk -dn -o TYPE "$disk")" != "disk" ]]; then
+	echo "'$disk' is not a whole disk!"
+	exit 1
+fi
+
+# Timezone:
+echo -n "Enter timezone (example: Europe/Belgrade): "
+read timezone
+
+if (( "${#timezone}" < 1 )); then
+	echo "Timezone cannot be empty!"
+	exit 1
+fi
+if [[ ! -e "/etc/zoneinfo/$timezone" && ! -e "/usr/share/zoneinfo/$timezone" ]]; then
+	echo "Timezone not found: $timezone!"
+	exit 1
+fi
+
+# Username:
+echo -n "Enter username (example: user): "
+read username
+
+if (( "${#username}" < 1 )); then
+	echo "Username cannot be empty!"
+	exit 1
+fi
+
+# Hostname:
+echo -n "Enter hostname (example: user): "
+read hostname
+
+if (( "${#hostname}" < 1 )); then
+	echo "Hostname cannot be empty!"
+	exit 1
+fi
+
+# Confirm:
+echo -e "\nWARNING: ALL DATA ON $disk WILL BE LOST!"
+echo -n "Type YES to continue: "
+read confirm
+
+confirm_upper=$(echo "$confirm" | tr '[:lower:]' '[:upper:]')
+
+if [[ "$confirm_upper" == "YES" ]]; then
+	echo "Confirmation received. Continuing installation..."
+else
+	echo "Installation aborted!"
 	exit 1
 fi
 
@@ -32,23 +107,7 @@ clear                          # Ctrl + L
 lsblk
 
 # ------------------------------------------------------------------------------------------
-# 6. Create partitions:
-if [[ ! -d /sys/firmware/efi ]]; then
-	echo "UEFI mode required!"
-	exit 1
-fi
-
-echo -n "Enter disk (example: /dev/sda or /dev/nvme0n1): "
-read disk
-
-echo -e "\nWARNING: ALL DATA ON $disk WILL BE DESTROYED!"
-echo -n "Type Y to continue: "
-read confirm
-
-if [[ "Y" != "$confirm" && "y" != "$confirm" ]]; then
-	echo "Aborted."
-	exit 1
-fi
+# 6. Disk partitioning:
 
 wipefs -a "$disk"
 parted --script "$disk" mklabel gpt
@@ -100,8 +159,8 @@ swapon "$P2"
 
 lsblk "$disk"                  # Show result
 
-echo -e "\nPartitioning completed.\nInstallation starts in 15 seconds..."
-sleep 15
+echo -e "\nPartitioning completed.\nInstallation starts in 10 seconds..."
+sleep 10
 
 # ------------------------------------------------------------------------------------------
 # 7. Generate config:
@@ -110,6 +169,11 @@ nixos-generate-config --root "/mnt/"
 # ------------------------------------------------------------------------------------------
 # 8. Configure:
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
+
+sed -i "s/TIMEZONE_TO_BE_CHANGED/$timezone/g" "/tmp/NixOS/configurations/configuration.nix"
+sed -i "s/USERNAME_TO_BE_CHANGED/$username/g" "/tmp/NixOS/configurations/configuration.nix"
+sed -i "s/HOSTNAME_TO_BE_CHANGED/$hostname/g" "/tmp/NixOS/configurations/configuration.nix"
+
 mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
 # ------------------------------------------------------------------------------------------
@@ -117,13 +181,6 @@ mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 nixos-install
 # New password:
 # Retype new password:
-
-echo -n -e "\nEnter username from configuration.nix (example: user): "
-read username
-if (( "${#username}" < 1 )); then
-	echo "Username is empty!"
-	exit 1
-fi
 
 nixos-enter --root "/mnt/" -c "passwd $username"
 
