@@ -45,4 +45,5 @@
 ## 8. Installation:
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * chmod +x "NixOS/install-vbox.sh"
+* vim "NixOS/install-vbox.sh"
 * sudo ./"NixOS/install-vbox.sh"
