@@ -42,7 +42,7 @@
 * exit
 * ping -c 1 "www.google.com" # If not connected, "Temporary failure in name resolution"
 
-## 8. Installation:
+## 8. Installation
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * chmod +x "NixOS/install-vbox.sh"
 * vim "NixOS/install-vbox.sh"
