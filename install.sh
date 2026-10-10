@@ -11,12 +11,10 @@ if (( EUID != 0 )); then
 fi
 
 # Connection:
-if ping -qc 1 "www.google.com" > /dev/null 2>&1; then
-	echo "Network: already connected."
-else
-	echo "Network: not connected!"
-	echo "Connect using nmtui, then restart the script."
-	exit 1
+if ! ping -qc 1 "www.google.com" > /dev/null 2>&1; then
+    echo "Network: not connected!"
+    echo "Connect using nmtui."
+    exit 1
 fi
 
 # UEFI boot:
@@ -32,7 +30,12 @@ setfont ter-132b
 loadkeys sr-latin
 
 # ------------------------------------------------------------------------------------------
-# 3. Inputs:
+# 3. List partitions:
+
+lsblk
+
+# ------------------------------------------------------------------------------------------
+# 4. Inputs:
 
 # disk="/dev/sda"
 # timezone="Europe/Belgrade"
@@ -99,12 +102,8 @@ else
 fi
 
 # ------------------------------------------------------------------------------------------
-# 4. Clear screen:
+# 5. Clear screen:
 clear                          # Ctrl + L
-
-# ------------------------------------------------------------------------------------------
-# 5. List partitions:
-lsblk
 
 # ------------------------------------------------------------------------------------------
 # 6. Disk partitioning:
