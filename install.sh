@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # ------------------------------------------------------------------------------------------
-# 1. Checks:
+# 1. CHECKS
 
 # Superuser:
 if (( EUID != 0 )); then
@@ -12,9 +12,9 @@ fi
 
 # Connection:
 if ! ping -qc 1 "www.google.com" > /dev/null 2>&1; then
-    echo "Network: not connected!"
-    echo "Connect using nmtui."
-    exit 1
+	echo "Network: not connected!"
+	echo "Connect using nmtui."
+	exit 1
 fi
 
 # UEFI boot:
@@ -24,18 +24,23 @@ if [[ ! -d /sys/firmware/efi ]]; then
 fi
 
 # ------------------------------------------------------------------------------------------
-# 2. Font:
+# 2. FONT
 
 setfont ter-132b
 loadkeys sr-latin
 
 # ------------------------------------------------------------------------------------------
-# 3. List partitions:
+# 3. CLEAR SCREEN
+
+clear                          # Ctrl + L
+
+# ------------------------------------------------------------------------------------------
+# 4. LIST PARTITIONS
 
 lsblk
 
 # ------------------------------------------------------------------------------------------
-# 4. Inputs:
+# 5. INPUTS
 
 # disk="/dev/sda"
 # timezone="Europe/Belgrade"
@@ -102,11 +107,7 @@ else
 fi
 
 # ------------------------------------------------------------------------------------------
-# 5. Clear screen:
-clear                          # Ctrl + L
-
-# ------------------------------------------------------------------------------------------
-# 6. Disk partitioning:
+# 6. DISK PARTITIONING
 
 wipefs -a "$disk"
 parted --script "$disk" mklabel gpt
@@ -162,21 +163,24 @@ echo -e "\nPartitioning completed.\nInstallation starts in 10 seconds..."
 sleep 10
 
 # ------------------------------------------------------------------------------------------
-# 7. Generate config:
+# 7. GENERATE CONFIG
+
 nixos-generate-config --root "/mnt/"
 
 # ------------------------------------------------------------------------------------------
-# 8. Configure:
+# 8. CONFIGURATION
+
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
 
-sed -i "s/TIMEZONE_TO_BE_CHANGED/$timezone/g" "/tmp/NixOS/configurations/configuration.nix"
-sed -i "s/USERNAME_TO_BE_CHANGED/$username/g" "/tmp/NixOS/configurations/configuration.nix"
-sed -i "s/HOSTNAME_TO_BE_CHANGED/$hostname/g" "/tmp/NixOS/configurations/configuration.nix"
+sed -i "s|TIMEZONE_TO_BE_CHANGED|$timezone|g" "/tmp/NixOS/configurations/configuration.nix"
+sed -i "s|USERNAME_TO_BE_CHANGED|$username|g" "/tmp/NixOS/configurations/configuration.nix"
+sed -i "s|HOSTNAME_TO_BE_CHANGED|$hostname|g" "/tmp/NixOS/configurations/configuration.nix"
 
 mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
 # ------------------------------------------------------------------------------------------
-# 9. Install:
+# 9. INSTALLATION
+
 nixos-install
 # New password:
 # Retype new password:
@@ -184,7 +188,8 @@ nixos-install
 nixos-enter --root "/mnt/" -c "passwd $username"
 
 # ------------------------------------------------------------------------------------------
-# 10. Personal files:
+# 10. PERSONAL FILES
+
 mkdir -p "/mnt/home/$username/"
 mv "/tmp/NixOS/" "/mnt/home/$username/"
 mv "/mnt/home/$username/NixOS/first-boot.md" "/mnt/home/$username/"
@@ -203,7 +208,8 @@ rm -r "/mnt/home/$username/NixOS/"
 nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
 
 # ------------------------------------------------------------------------------------------
-# 11. Poweroff:
+# 11. POWEROFF
+
 swapoff -a
 umount -R "/mnt"
 systemctl poweroff
