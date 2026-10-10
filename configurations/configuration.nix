@@ -49,7 +49,7 @@
 
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
         Xcursor.theme: Vanilla-DMZ
-        Xcursor.size: 35
+        Xcursor.size: 45
       EOF
     '';
 
@@ -111,7 +111,7 @@
   environment.variables =
   {
     XCURSOR_THEME = "Vanilla-DMZ";
-    XCURSOR_SIZE = "35";
+    XCURSOR_SIZE = "45";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
