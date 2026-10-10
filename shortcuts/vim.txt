@@ -7,7 +7,8 @@ i                  = Insert mode
 :q!                = Close without saving
 u                  = Undo
 Ctrl+r             = Redo
-/word              = Find (n = next; N = previous)
+/word              = Find case-sensitive (n = next; N = previous)
+/word\c            = Find case-insensitive (n = next; N = previous)
 y                  = Copy
 d                  = Cut
 2yy                = Copy 2 lines
