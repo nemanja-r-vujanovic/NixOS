@@ -32,7 +32,17 @@
 * setfont ter-132b
 * sudo loadkeys sr-latin
 
-## 7. Installation:
+## 7. Wi-Fi connection
+* iwctl
+* device list
+* station wlan0 scan
+* station wlan0 get-networks
+* station wlan0 connect "enter ssid"
+* (enter password)
+* exit
+* ping -c 1 "www.google.com" # If not connected, "Temporary failure in name resolution"
+
+## 8. Installation:
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * chmod +x "NixOS/install-vbox.sh"
 * sudo ./"NixOS/install-vbox.sh"
