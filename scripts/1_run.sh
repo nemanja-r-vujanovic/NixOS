@@ -11,4 +11,5 @@
 # ...
 ./"nixos-sync/scripts/git-sync.sh"
 ./"nixos-sync/scripts/clean-up.sh"
-./"nixos-sync/scripts/reboot.sh"
+
+systemctl reboot
