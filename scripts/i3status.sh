@@ -18,6 +18,6 @@ battery all
 
 tztime local
 {
-    format = "🗓️ %d.%m.%Y. %H:%M:%S"
+    format = "🗓️ %d.%m.%Y. – %H:%M:%S"
 }
 EOF
