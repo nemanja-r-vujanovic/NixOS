@@ -44,8 +44,10 @@ lsblk
 # disk="/dev/sda"
 # timezone="Europe/Belgrade"
 # username="user"
-# hostname="$username"
-# confirm="YES"
+# hostname="nixos"
+# password="..."
+# confirm_password="$password"
+# confirm_install="YES"
 
 # Disk:
 echo -n -e "\nEnter disk (example: /dev/sda or /dev/nvme0n1): "
@@ -83,7 +85,7 @@ if (( "${#username}" < 1 )); then
 fi
 
 # Hostname:
-echo -n "Enter hostname (example: user): "
+echo -n "Enter hostname (example: nixos): "
 read hostname
 
 if (( "${#hostname}" < 1 )); then
@@ -91,12 +93,30 @@ if (( "${#hostname}" < 1 )); then
 	exit 1
 fi
 
-# Confirm:
+# Password:
+echo -n "Enter password: "
+read password
+
+if (( "${#password}" < 1 )); then
+	echo "Password cannot be empty!"
+	exit 1
+fi
+
+# Confirm password:
+echo -n "Confirm password: "
+read confirm_password
+
+if [[ "$confirm_password" != "$password" ]]; then
+	echo "Passwords did not match!"
+	exit 1
+fi
+
+# Confirm install:
 echo -e "\nWARNING: ALL DATA ON $disk WILL BE LOST!"
 echo -n "Type YES to continue: "
-read confirm
+read confirm_install
 
-confirm_upper=$(echo "$confirm" | tr '[:lower:]' '[:upper:]')
+confirm_upper=$(echo "$confirm_install" | tr '[:lower:]' '[:upper:]')
 
 if [[ "$confirm_upper" == "YES" ]]; then
 	echo -e "\nConfirmation received. Continuing installation..."
@@ -180,11 +200,16 @@ mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 # ------------------------------------------------------------------------------------------
 # 9. INSTALLATION
 
-nixos-install
+nixos-install --no-root-passwd
+# nixos-install
 # New password:
 # Retype new password:
 
-nixos-enter --root "/mnt/" -c "passwd $username"
+printf 'root:%s\n' "$password" | nixos-enter --root /mnt -c chpasswd
+printf '%s:%s\n' "$username" "$password" | nixos-enter --root /mnt -c chpasswd
+unset password confirm_password
+
+# nixos-enter --root "/mnt/" -c "passwd $username"
 
 # ------------------------------------------------------------------------------------------
 # 10. PERSONAL FILES
