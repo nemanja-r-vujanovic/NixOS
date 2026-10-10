@@ -8,6 +8,5 @@
 ./"nixos-sync/scripts/pcmanfm.sh"
 # ...
 ./"nixos-sync/scripts/git-sync.sh"
-
-rm "$HOME/first-boot.md"
-systemctl reboot
+./"nixos-sync/scripts/clean-up.sh"
+./"nixos-sync/scripts/reboot.sh"
