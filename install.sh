@@ -49,7 +49,7 @@ lsblk
 # confirm="YES"
 
 # Disk:
-echo -n "Enter disk (example: /dev/sda or /dev/nvme0n1): "
+echo -n -e "\nEnter disk (example: /dev/sda or /dev/nvme0n1): "
 read disk
 
 if [[ ! -b "$disk" ]]; then
