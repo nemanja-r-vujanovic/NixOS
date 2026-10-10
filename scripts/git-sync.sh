@@ -7,6 +7,7 @@ mv "$HOME/.config/i3/" "$HOME/nixos-sync/"
 mv "$HOME/.config/i3status/" "$HOME/nixos-sync/"
 mv "$HOME/.config/rofi/" "$HOME/nixos-sync/"
 mv "$HOME/.config/pcmanfm/" "$HOME/nixos-sync/"
+mv "$HOME/.config/libfm/" "$HOME/nixos-sync/"
 
 sudo ln -sT "$HOME/nixos-sync/nixos" "/etc/nixos"
 ln -sT "$HOME/nixos-sync/.vimrc" "$HOME/.vimrc"
@@ -15,6 +16,7 @@ ln -sT "$HOME/nixos-sync/i3" "$HOME/.config/i3"
 ln -sT "$HOME/nixos-sync/i3status" "$HOME/.config/i3status"
 ln -sT "$HOME/nixos-sync/rofi" "$HOME/.config/rofi"
 ln -sT "$HOME/nixos-sync/pcmanfm" "$HOME/.config/pcmanfm"
+ln -sT "$HOME/nixos-sync/libfm" "$HOME/.config/libfm"
 
 ls -la "$HOME/.config/"
 
