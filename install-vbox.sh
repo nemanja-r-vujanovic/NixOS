@@ -201,15 +201,11 @@ mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 # 9. INSTALLATION
 
 nixos-install --no-root-passwd
-# nixos-install
-# New password:
-# Retype new password:
 
 printf 'root:%s\n' "$password" | nixos-enter --root /mnt -c chpasswd
 printf '%s:%s\n' "$username" "$password" | nixos-enter --root /mnt -c chpasswd
-unset password confirm_password
 
-# nixos-enter --root "/mnt/" -c "passwd $username"
+unset password confirm_password
 
 # ------------------------------------------------------------------------------------------
 # 10. PERSONAL FILES
