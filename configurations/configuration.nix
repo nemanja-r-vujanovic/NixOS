@@ -75,6 +75,7 @@
   # services.libinput.enable = true;
 
   # Define an account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = true;
   users.users.USERNAME_TO_BE_CHANGED =
   {
     isNormalUser = true;
