@@ -12,7 +12,7 @@
 
 ### dd:
 * lsblk
-* sudo dd if=nixos-minimal-x86_64.iso of=/dev/sda status=progress && systemctl poweroff
+* sudo dd if="nixos-minimal-x86_64.iso" of="/dev/sda" status=progress && systemctl poweroff
 
 ## 5. Boot in EFI
 ### UEFI Setup: F2
