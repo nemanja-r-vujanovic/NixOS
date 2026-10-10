@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ./"nixos-sync/scripts/vim.sh"
+./"nixos-sync/scripts/bashrc.sh"
 ./"nixos-sync/scripts/alacritty.sh"
 ./"nixos-sync/scripts/i3.sh"
 ./"nixos-sync/scripts/i3status.sh"
