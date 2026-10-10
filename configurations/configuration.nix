@@ -114,15 +114,6 @@
     XCURSOR_SIZE = "45";
   };
 
-  environment.shellAliases =
-  {
-    rm = "cd $HOME/nixos-sync/maintenance/ && ./safely-remove.sh"
-    vi = "cd $HOME/nixos-sync/maintenance/ && ./remove-viminfo.sh"
-    ru = "cd $HOME/nixos-sync/maintenance/ && ./rebuild-upgrade.sh"
-    rs = "cd $HOME/nixos-sync/maintenance/ && ./rebuild-switch.sh"
-    rb = "cd $HOME/nixos-sync/maintenance/ && ./rebuild-boot.sh"
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
