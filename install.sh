@@ -11,7 +11,7 @@ if (( EUID != 0 )); then
 fi
 
 # Connection:
-if ! ping -qc 1 "www.google.com" > /dev/null 2>&1; then
+if ! ping -q -c 1 "www.google.com" > /dev/null 2>&1; then
 	echo "Network: not connected!"
 	echo "Connect using nmtui."
 	exit 1
@@ -56,7 +56,7 @@ if [[ ! -b "$disk" ]]; then
 	echo "'$disk' is not a block device!"
 	exit 1
 fi
-if [[ "$(lsblk -dn -o TYPE "$disk")" != "disk" ]]; then
+if [[ "$(lsblk -d -n -o TYPE "$disk")" != "disk" ]]; then
 	echo "'$disk' is not a whole disk!"
 	exit 1
 fi
