@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# ------------------------------------------------------------------------------------------
 # 1. Superuser:
 if (( EUID != 0 )); then
 	echo "Run this script as root!"
 	exit 1
 fi
 
+# ------------------------------------------------------------------------------------------
 # 2. Font:
 setfont ter-132b
 loadkeys sr-latin
 
+# ------------------------------------------------------------------------------------------
 # 3. Connection:
 if ping -qc 1 "www.google.com" > /dev/null 2>&1; then
 	echo "Network: already connected."
@@ -20,12 +23,15 @@ else
 	exit 1
 fi
 
+# ------------------------------------------------------------------------------------------
 # 4. Clear screen:
 clear                          # Ctrl + L
 
+# ------------------------------------------------------------------------------------------
 # 5. List partitions:
 lsblk
 
+# ------------------------------------------------------------------------------------------
 # 6. Create partitions:
 if [[ ! -d /sys/firmware/efi ]]; then
 	echo "UEFI mode required!"
@@ -97,13 +103,16 @@ lsblk "$disk"                  # Show result
 echo -e "\nPartitioning completed.\nInstallation starts in 15 seconds..."
 sleep 15
 
+# ------------------------------------------------------------------------------------------
 # 7. Generate config:
 nixos-generate-config --root "/mnt/"
 
+# ------------------------------------------------------------------------------------------
 # 8. Configure:
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
 mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
+# ------------------------------------------------------------------------------------------
 # 9. Install:
 nixos-install
 # New password:
@@ -118,6 +127,7 @@ fi
 
 nixos-enter --root "/mnt/" -c "passwd $username"
 
+# ------------------------------------------------------------------------------------------
 # 10. Personal files:
 mkdir -p "/mnt/home/$username/"
 mv "/tmp/NixOS/" "/mnt/home/$username/"
@@ -136,7 +146,10 @@ rm -r "/mnt/home/$username/NixOS/"
 # Fix ownership:
 nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
 
+# ------------------------------------------------------------------------------------------
 # 11. Poweroff:
 swapoff -a
 umount -R "/mnt"
 systemctl poweroff
+
+# ------------------------------------------------------------------------------------------
