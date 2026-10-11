@@ -6,19 +6,19 @@ set -euo pipefail
 
 # Superuser:
 if (( EUID != 0 )); then
-	echo "Run this script as root!"
+	echo "Run script as root!"
 	exit 1
 fi
 
 # Connection:
 if ! ping -q -c 1 "www.google.com" > /dev/null 2>&1; then
-	echo "Network: not connected!"
+	echo "Connect to network!"
 	exit 1
 fi
 
 # UEFI boot:
 if [[ ! -d /sys/firmware/efi ]]; then
-	echo "UEFI mode required!"
+	echo "Boot in UEFI mode!"
 	exit 1
 fi
 
@@ -45,14 +45,18 @@ lsblk
 # timezone="Europe/Belgrade"
 # username="user"
 # hostname="nixos"
-# password="..."
+# password="student"
 # confirm_password="$password"
 # confirm_install="YES"
 
 # Disk:
-echo -n -e "\nEnter disk (example: /dev/sda or /dev/nvme0n1): "
+echo -e -n "\nEnter disk (example: /dev/sda or /dev/nvme0n1): "
 read disk
 
+if (( "${#disk}" < 1 )); then
+	echo "Disk cannot be empty!"
+	exit 1
+fi
 if [[ ! -b "$disk" ]]; then
 	echo "'$disk' is not a block device!"
 	exit 1
@@ -96,15 +100,17 @@ fi
 # Password:
 echo -n "Enter password: "
 read -s password
+echo
 
-if (( "${#password}" < 1 )); then
-	echo "Password cannot be empty!"
+if (( "${#password}" < 6 )); then
+	echo "Password is too short!"
 	exit 1
 fi
 
 # Confirm password:
 echo -n "Confirm password: "
 read -s confirm_password
+echo
 
 if [[ "$confirm_password" != "$password" ]]; then
 	echo "Passwords did not match!"
@@ -125,6 +131,8 @@ else
 	exit 1
 fi
 
+unset confirm_install
+
 # ------------------------------------------------------------------------------------------
 # 6. DISK PARTITIONING
 
@@ -132,54 +140,72 @@ wipefs -a "$disk"
 parted --script "$disk" mklabel gpt
 
 # Partitioning (GPT):
-# EFI → Size: 512 MB → File System: fat32 → Mount Point: /boot/ → Label: boot → Flags: boot, esp
+# EFI → Size: 512 MB → File System: fat32 → Mount Point: /boot/ → Label: efi → Flags: boot, esp
+# BIOS → Size: 8 MB → File System: cleared/unformatted → Flags: bios_grub
 # Swap → Size: 4096 MB → File System: linux-swap → Label: swap
+# Local → Size: 2048 MB → File System: ntfs → Label: local → Flags: msftdata
 # Root → Size: Remaining MB → File System: ext4 → Mount Point: / → Label: nixos
 
 # Size:
 start="1"
-efi="$((start + 512))"
-swap="$((efi + 4096))"
+efi="$((512 + start))"
+bios="$((8 + efi))"
+swap="$((4096 + bios))"
+local="$((2048 + swap))"
 root="100%"
 
 # EFI:
 parted --script "$disk" mkpart primary fat32 "$start"MiB "$efi"MiB
-parted --script "$disk" name 1 "boot"
+parted --script "$disk" name 1 "efi"
 parted --script "$disk" set 1 boot on
 parted --script "$disk" set 1 esp on
 
+# BIOS:
+parted --script "$disk" mkpart primary "$efi"MiB "$bios"MiB
+parted --script "$disk" name 2 "bios"
+parted --script "$disk" set 2 bios_grub on
+
 # Swap:
-parted --script "$disk" mkpart primary linux-swap "$efi"MiB "$swap"MiB
-parted --script "$disk" name 2 "swap"
+parted --script "$disk" mkpart primary linux-swap "$bios"MiB "$swap"MiB
+parted --script "$disk" name 3 "swap"
+
+# Local:
+parted --script "$disk" mkpart primary ntfs "$swap"MiB "$local"MiB
+parted --script "$disk" name 4 "local"
+parted --script "$disk" set 4 msftdata on
 
 # Root:
-parted --script "$disk" mkpart primary ext4 "$swap"MiB "$root"MiB
-parted --script "$disk" name 3 "nixos"
+parted --script "$disk" mkpart primary ext4 "$local"MiB "$root"MiB
+parted --script "$disk" name 5 "nixos"
 
 partprobe "$disk"
 udevadm settle
 
 # Partition device names (nvme uses p1, sata uses 1):
 if [[ "$disk" =~ nvme|mmcblk ]]; then
-	P1="${disk}p1"; P2="${disk}p2"; P3="${disk}p3"
+	P1="${disk}p1"; P2="${disk}p2"; P3="${disk}p3"; P4="${disk}p4"; P5="${disk}p5"
 else
-	P1="${disk}1"; P2="${disk}2"; P3="${disk}3"
+	P1="${disk}1"; P2="${disk}2"; P3="${disk}3"; P4="${disk}4"; P5="${disk}5"
 fi
 
 # Format partitions:
-mkfs.fat -F 32 -n "boot" "$P1" # EFI
-mkswap -L "swap" "$P2"         # Swap
-mkfs.ext4 -F -L "nixos" "$P3"  # Root
+mkfs.fat -F 32 -n "efi" "$P1" # EFI
+wipefs -a "$P2"               # BIOS - TODO later add bootloader for BIOS boot
+mkswap -L "swap" "$P3"        # Swap
+mkfs.ntfs -Q -L "local" "$P4" # Local
+mkfs.ext4 -F -L "nixos" "$P5" # Root
 
 # Mount partitions:
-mount -t ext4 "$P3" "/mnt/"
+mount -t ext4 "$P5" "/mnt/"
 mount --mkdir "$P1" "/mnt/boot/"
-swapon "$P2"
+swapon "$P3"
 
 lsblk "$disk"                  # Show result
 
-echo -e "\nPartitioning completed.\nInstallation starts in 10 seconds..."
-sleep 10
+echo -e "\nPartitioning completed.\nInstallation starts in 7 seconds..."
+sleep 7
+
+unset disk
 
 # ------------------------------------------------------------------------------------------
 # 7. GENERATE CONFIG
@@ -197,15 +223,19 @@ sed -i "s|HOSTNAME_TO_BE_CHANGED|$hostname|g" "/tmp/NixOS/configurations/configu
 
 mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
+unset timezone
+unset hostname
+
 # ------------------------------------------------------------------------------------------
 # 9. INSTALLATION
 
 nixos-install --no-root-passwd
 
-printf 'root:%s\n' "$password" | nixos-enter --root /mnt -c chpasswd
+printf '%s:%s\n' "root" "$password" | nixos-enter --root /mnt -c chpasswd
 printf '%s:%s\n' "$username" "$password" | nixos-enter --root /mnt -c chpasswd
 
-unset password confirm_password
+unset password
+unset confirm_password
 
 # ------------------------------------------------------------------------------------------
 # 10. PERSONAL FILES
@@ -226,6 +256,8 @@ rm -r "/mnt/home/$username/NixOS/"
 
 # Fix ownership:
 nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
+
+unset username
 
 # ------------------------------------------------------------------------------------------
 # 11. POWEROFF
