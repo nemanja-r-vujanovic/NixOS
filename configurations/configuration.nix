@@ -14,7 +14,7 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Disable the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.grub =
@@ -34,7 +34,7 @@
   networking.networkmanager.enable = true;
   networking.hostName = "HOSTNAME_TO_BE_CHANGED"; # Define your hostname.
 
-  # Set your time zone.
+  # Set time zone.
   time.timeZone = "TIMEZONE_TO_BE_CHANGED";
 
   # Select internationalisation properties.
@@ -76,7 +76,7 @@
   services.udisks2.enable = true;
   security.polkit.enable = true;
 
-  # Enable CUPS to print documents.
+  # Enable CUPS for printing.
   # services.printing.enable = true;
 
   # Enable sound.
@@ -88,8 +88,8 @@
   #   pulse.enable = true;
   # };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  # Enable touchpad support.
+  services.libinput.enable = true;
 
   # Define an account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = true;
