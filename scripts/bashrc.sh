@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 cat > "$HOME/.bashrc" <<'EOF'
 PS1="${PS1#\\n}"
