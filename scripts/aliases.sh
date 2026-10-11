@@ -2,8 +2,8 @@
 set -euo pipefail
 
 cat > "$HOME/.bash_aliases" <<'EOF'
-alias rv='cd $HOME/nixos-sync/maintenance/ && ./remove-viminfo.sh'
 alias rm='cd $HOME/nixos-sync/maintenance/ && ./safely-remove.sh'
+alias rv='cd $HOME/nixos-sync/maintenance/ && ./remove-viminfo.sh'
 alias rd='cd $HOME/nixos-sync/maintenance/ && ./rebuild-dry.sh'
 alias rs='cd $HOME/nixos-sync/maintenance/ && ./rebuild-switch.sh'
 alias ru='cd $HOME/nixos-sync/maintenance/ && ./rebuild-upgrade.sh'
