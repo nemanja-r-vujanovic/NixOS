@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Reboot now?"
+echo -e "\nReboot now?"
 echo -n "Type NO to abort: "
 read rboot
 
