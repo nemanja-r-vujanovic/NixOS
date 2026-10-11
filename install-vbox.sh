@@ -122,9 +122,9 @@ echo -e "\nWARNING: ALL DATA ON $disk WILL BE LOST!"
 echo -n "Type YES to continue: "
 read confirm_install
 
-confirm_upper=$(echo "$confirm_install" | tr '[:lower:]' '[:upper:]')
+confirm_install_upper=$(echo "$confirm_install" | tr '[:lower:]' '[:upper:]')
 
-if [[ "$confirm_upper" == "YES" ]]; then
+if [[ "$confirm_install_upper" == "YES" ]]; then
 	echo -e "\nConfirmation received. Continuing installation..."
 else
 	echo -e "\nInstallation aborted!"
@@ -132,7 +132,7 @@ else
 fi
 
 unset confirm_install
-unset confirm_upper
+unset confirm_install_upper
 
 # ------------------------------------------------------------------------------------------
 # 6. DISK PARTITIONING
