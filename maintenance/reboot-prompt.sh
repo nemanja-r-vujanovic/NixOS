@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 echo -e "\nReboot now?"
 echo -n "Type NO to abort: "
