@@ -9,6 +9,7 @@ set -euo pipefail
 ./"nixos-sync/scripts/rofi.sh"
 ./"nixos-sync/scripts/pcmanfm.sh"
 ./"nixos-sync/scripts/aliases.sh"
+./"nixos-sync/scripts/chromium-ublock.sh"
 # ...
 ./"nixos-sync/scripts/git-sync.sh"
 ./"nixos-sync/scripts/clean-up.sh"
