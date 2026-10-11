@@ -198,7 +198,7 @@ mkfs.ext4 -F -L "nixos" "$P5" # Root
 
 # Mount partitions:
 mount -t ext4 "$P5" "/mnt/"
-mount --mkdir "$P1" "/mnt/boot/"
+mount --mkdir -o umask=0077 "$P1" "/mnt/boot/"
 swapon "$P3"
 
 lsblk "$disk"                  # Show result
