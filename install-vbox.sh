@@ -74,7 +74,7 @@ if (( "${#timezone}" < 1 )); then
 	echo "Timezone cannot be empty!"
 	exit 1
 fi
-if [[ ! -e "/etc/zoneinfo/$timezone" && ! -e "/usr/share/zoneinfo/$timezone" ]]; then
+if [[ ! -e "/etc/zoneinfo/$timezone" ]]; then
 	echo "Timezone not found: $timezone!"
 	exit 1
 fi
