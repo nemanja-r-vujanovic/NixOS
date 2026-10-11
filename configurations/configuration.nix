@@ -58,7 +58,7 @@
       xwallpaper --zoom "$HOME/nixos-sync/wallpapers/1.jpg"
       xset r rate 200 35 &
 
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      ${pkgs.xrdb}/bin/xrdb -merge <<EOF
         Xcursor.theme: Vanilla-DMZ
         Xcursor.size: 45
       EOF
@@ -158,7 +158,8 @@
   # system.copySystemConfiguration = true;
   #
   # This option defines the first version you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older versions.
+  # and is used to maintain compatibility with application data (e.g. databases)
+  # created on older versions.
   #
   # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
   # so changing it will NOT upgrade your system.
