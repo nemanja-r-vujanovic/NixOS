@@ -132,6 +132,7 @@ else
 fi
 
 unset confirm_install
+unset confirm_upper
 
 # ------------------------------------------------------------------------------------------
 # 6. DISK PARTITIONING
