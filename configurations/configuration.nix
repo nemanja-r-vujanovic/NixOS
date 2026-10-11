@@ -109,6 +109,7 @@
   # List packages installed in system profile.
   environment.systemPackages =
   [
+    pkgs."sudo"
     pkgs."vim"
     pkgs."alacritty"
     pkgs."git"
