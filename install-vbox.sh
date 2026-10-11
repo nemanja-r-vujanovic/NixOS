@@ -206,7 +206,6 @@ lsblk "$disk"                  # Show result
 echo -e "\nPartitioning completed.\nInstallation starts in 7 seconds..."
 sleep 7
 
-unset disk
 unset start
 unset efi
 unset bios
@@ -229,12 +228,14 @@ nixos-generate-config --root "/mnt/"
 
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
 
+sed -i "s|DISK_TO_BE_CHANGED|$disk|g" "/tmp/NixOS/configurations/configuration.nix"
 sed -i "s|TIMEZONE_TO_BE_CHANGED|$timezone|g" "/tmp/NixOS/configurations/configuration.nix"
 sed -i "s|USERNAME_TO_BE_CHANGED|$username|g" "/tmp/NixOS/configurations/configuration.nix"
 sed -i "s|HOSTNAME_TO_BE_CHANGED|$hostname|g" "/tmp/NixOS/configurations/configuration.nix"
 
 mv "/tmp/NixOS/configurations/configuration.nix" "/mnt/etc/nixos/"
 
+unset disk
 unset timezone
 unset hostname
 
