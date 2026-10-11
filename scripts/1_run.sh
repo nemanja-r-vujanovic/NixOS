@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 ./"nixos-sync/scripts/vim.sh"
 ./"nixos-sync/scripts/bashrc.sh"

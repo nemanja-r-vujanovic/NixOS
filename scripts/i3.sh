@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 mkdir -p "$HOME/.config/i3/"
 sed -i "s|exec i3-sensible-terminal|exec alacritty|g" "$HOME/.config/i3/config"

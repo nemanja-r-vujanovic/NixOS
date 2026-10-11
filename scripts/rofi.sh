@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 echo "Search: rofi theme selector"
 echo "Select: arc-dark by leofa"

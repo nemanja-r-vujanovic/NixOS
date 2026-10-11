@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 cat > "$HOME/.bash_aliases" <<'EOF'
 alias rm='cd $HOME/nixos-sync/maintenance/ && ./safely-remove.sh'

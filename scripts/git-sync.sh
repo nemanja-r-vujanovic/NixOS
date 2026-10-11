@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 sudo mv "/etc/nixos/" "$HOME/nixos-sync/"
 mv "$HOME/.vimrc" "$HOME/nixos-sync/"
