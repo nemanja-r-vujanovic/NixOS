@@ -18,6 +18,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  fileSystems."/boot".options = [
+    "umask=0077"
+  ];
+
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
   networking.hostName = "HOSTNAME_TO_BE_CHANGED"; # Define your hostname.
