@@ -2,6 +2,7 @@
 set -euo pipefail
 
 sudo mv "/etc/nixos/" "$HOME/nixos-sync/"
+sudo mv "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
 mv "$HOME/.vimrc" "$HOME/nixos-sync/"
 mv "$HOME/.bashrc" "$HOME/nixos-sync/"
 mv "$HOME/.bash_aliases" "$HOME/nixos-sync/"
@@ -11,9 +12,9 @@ mv "$HOME/.config/i3status/" "$HOME/nixos-sync/"
 mv "$HOME/.config/rofi/" "$HOME/nixos-sync/"
 mv "$HOME/.config/pcmanfm/" "$HOME/nixos-sync/"
 mv "$HOME/.config/libfm/" "$HOME/nixos-sync/"
-mv "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
 
 sudo ln -s -T "$HOME/nixos-sync/nixos" "/etc/nixos"
+sudo ln -s -T "$HOME/nixos-sync/managed" "$HOME/.config/managed"
 ln -s -T "$HOME/nixos-sync/.vimrc" "$HOME/.vimrc"
 ln -s -T "$HOME/nixos-sync/.bashrc" "$HOME/.bashrc"
 ln -s -T "$HOME/nixos-sync/.bash_aliases" "$HOME/.bash_aliases"
@@ -23,7 +24,6 @@ ln -s -T "$HOME/nixos-sync/i3status" "$HOME/.config/i3status"
 ln -s -T "$HOME/nixos-sync/rofi" "$HOME/.config/rofi"
 ln -s -T "$HOME/nixos-sync/pcmanfm" "$HOME/.config/pcmanfm"
 ln -s -T "$HOME/nixos-sync/libfm" "$HOME/.config/libfm"
-ln -s -T "$HOME/nixos-sync/managed" "$HOME/.config/managed"
 
 ls -a -l "$HOME/.config/"
 
