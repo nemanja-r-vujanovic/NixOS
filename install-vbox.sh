@@ -16,12 +16,6 @@ if ! ping -q -c 1 "www.google.com" > /dev/null 2>&1; then
 	exit 1
 fi
 
-# UEFI boot:
-if [[ ! -d /sys/firmware/efi ]]; then
-	echo "Boot in UEFI mode!"
-	exit 1
-fi
-
 # ------------------------------------------------------------------------------------------
 # 2. FONT
 
