@@ -207,6 +207,12 @@ echo -e "\nPartitioning completed.\nInstallation starts in 7 seconds..."
 sleep 7
 
 unset disk
+unset start
+unset efi
+unset bios
+unset swap
+unset local
+unset root
 
 # ------------------------------------------------------------------------------------------
 # 7. GENERATE CONFIG
