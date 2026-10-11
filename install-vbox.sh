@@ -152,7 +152,7 @@ start="1"
 efi="$((512 + start))"
 bios="$((8 + efi))"
 swap="$((4096 + bios))"
-local="$((2048 + swap))"
+locl="$((2048 + swap))"
 root="100%"
 
 # EFI:
@@ -171,12 +171,12 @@ parted --script "$disk" mkpart primary linux-swap "$bios"MiB "$swap"MiB
 parted --script "$disk" name 3 "swap"
 
 # Local:
-parted --script "$disk" mkpart primary ntfs "$swap"MiB "$local"MiB
+parted --script "$disk" mkpart primary ntfs "$swap"MiB "$locl"MiB
 parted --script "$disk" name 4 "local"
 parted --script "$disk" set 4 msftdata on
 
 # Root:
-parted --script "$disk" mkpart primary ext4 "$local"MiB "$root"MiB
+parted --script "$disk" mkpart primary ext4 "$locl"MiB "$root"MiB
 parted --script "$disk" name 5 "nixos"
 
 partprobe "$disk"
@@ -211,8 +211,13 @@ unset start
 unset efi
 unset bios
 unset swap
-unset local
+unset locl
 unset root
+unset P1
+unset P2
+unset P3
+unset P4
+unset P5
 
 # ------------------------------------------------------------------------------------------
 # 7. GENERATE CONFIG
