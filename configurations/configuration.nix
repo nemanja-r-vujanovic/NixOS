@@ -65,6 +65,8 @@
 
   # Enable services.
   services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  security.polkit.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -112,6 +114,8 @@
     pkgs."pcmanfm"
     pkgs."rofi"
     pkgs."pfetch"
+    pkgs."glib"
+    pkgs.lxqt."lxqt-policykit"
   ];
 
   environment.variables =
