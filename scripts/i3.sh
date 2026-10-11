@@ -5,6 +5,8 @@ sed -i "s|exec i3-sensible-terminal|exec alacritty|g" "$HOME/.config/i3/config"
 
 cat >> "$HOME/.config/i3/config" <<'EOF'
 
+exec --no-startup-id lxqt-policykit-agent
+
 bindsym $mod+c exec chromium
 bindsym $mod+p exec pcmanfm
 bindsym $mod+m exec rofi -show drun
