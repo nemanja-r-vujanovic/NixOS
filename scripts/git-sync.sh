@@ -14,7 +14,7 @@ mv "$HOME/.config/pcmanfm/" "$HOME/nixos-sync/"
 mv "$HOME/.config/libfm/" "$HOME/nixos-sync/"
 
 sudo ln -s -T "$HOME/nixos-sync/nixos" "/etc/nixos"
-sudo ln -s -T "$HOME/nixos-sync/managed" "$HOME/.config/managed"
+sudo ln -s -T "$HOME/nixos-sync/managed" "/etc/chromium/policies/managed"
 ln -s -T "$HOME/nixos-sync/.vimrc" "$HOME/.vimrc"
 ln -s -T "$HOME/nixos-sync/.bashrc" "$HOME/.bashrc"
 ln -s -T "$HOME/nixos-sync/.bash_aliases" "$HOME/.bash_aliases"
