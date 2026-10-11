@@ -11,6 +11,7 @@ mv "$HOME/.config/i3status/" "$HOME/nixos-sync/"
 mv "$HOME/.config/rofi/" "$HOME/nixos-sync/"
 mv "$HOME/.config/pcmanfm/" "$HOME/nixos-sync/"
 mv "$HOME/.config/libfm/" "$HOME/nixos-sync/"
+mv "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
 
 sudo ln -s -T "$HOME/nixos-sync/nixos" "/etc/nixos"
 ln -s -T "$HOME/nixos-sync/.vimrc" "$HOME/.vimrc"
@@ -22,6 +23,7 @@ ln -s -T "$HOME/nixos-sync/i3status" "$HOME/.config/i3status"
 ln -s -T "$HOME/nixos-sync/rofi" "$HOME/.config/rofi"
 ln -s -T "$HOME/nixos-sync/pcmanfm" "$HOME/.config/pcmanfm"
 ln -s -T "$HOME/nixos-sync/libfm" "$HOME/.config/libfm"
+ln -s -T "$HOME/nixos-sync/managed" "$HOME/.config/managed"
 
 ls -a -l "$HOME/.config/"
 
