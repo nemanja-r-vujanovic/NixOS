@@ -6,7 +6,6 @@ set -euo pipefail
 ./"nixos-sync/scripts/alacritty.sh"
 ./"nixos-sync/scripts/i3.sh"
 ./"nixos-sync/scripts/i3status.sh"
-./"nixos-sync/scripts/rofi.sh"
 ./"nixos-sync/scripts/pcmanfm.sh"
 ./"nixos-sync/scripts/aliases.sh"
 ./"nixos-sync/scripts/chromium-ublock.sh"
