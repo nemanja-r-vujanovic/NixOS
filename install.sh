@@ -35,13 +35,13 @@ lsblk
 # ------------------------------------------------------------------------------------------
 # 5. INPUTS
 
-# disk="/dev/sda"
-# timezone="Europe/Belgrade"
-# username="user"
-# hostname="nixos"
-# password="student"
-# confirm_password="$password"
-# confirm_install="YES"
+disk="/dev/sda"
+timezone="Europe/Belgrade"
+username="user"
+hostname="nixos"
+password="student"
+confirm_password="$password"
+confirm_install="YES"
 
 # Disk:
 echo -e -n "\nEnter disk (example: /dev/sda or /dev/nvme0n1): "
