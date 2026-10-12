@@ -185,7 +185,7 @@ fi
 
 # Format partitions:
 mkfs.fat -F 32 -n "efi" "$P1" # EFI
-wipefs -a "$P2"               # BIOS - TODO later add bootloader for BIOS boot
+wipefs -a "$P2"               # BIOS
 mkswap -L "swap" "$P3"        # Swap
 mkfs.ntfs -Q -L "local" "$P4" # Local
 mkfs.ext4 -F -L "nixos" "$P5" # Root
