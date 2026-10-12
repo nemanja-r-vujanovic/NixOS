@@ -71,6 +71,11 @@
     };
   };
 
+  services.xserver.excludePackages =
+  [
+    pkgs."xterm"
+  ];
+
   # Enable services.
   services.gvfs.enable = true;
   services.udisks2.enable = true;
