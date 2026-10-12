@@ -126,7 +126,6 @@
     pkgs."p7zip"
     pkgs."vanilla-dmz"
     pkgs."pcmanfm"
-    pkgs."rofi"
     pkgs."pfetch"
     pkgs."glib"
     pkgs.lxqt."lxqt-policykit"
