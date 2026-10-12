@@ -2,12 +2,12 @@
 set -euo pipefail
 
 cat > "$HOME/.bash_aliases" <<'EOF'
-alias cc='cd $HOME/nixos-sync/maintenance/ && ./clean-junk.sh'
-alias rm='cd $HOME/nixos-sync/maintenance/ && ./safely-remove.sh'
-alias rv='cd $HOME/nixos-sync/maintenance/ && ./remove-viminfo.sh'
-alias rd='cd $HOME/nixos-sync/maintenance/ && ./rebuild-dry.sh'
-alias rs='cd $HOME/nixos-sync/maintenance/ && ./rebuild-switch.sh'
-alias ru='cd $HOME/nixos-sync/maintenance/ && ./rebuild-upgrade.sh'
-alias rb='cd $HOME/nixos-sync/maintenance/ && ./rebuild-boot.sh'
-alias rp='cd $HOME/nixos-sync/maintenance/ && ./reboot-prompt.sh'
+alias cc='bash "clean-junk.sh"'
+alias rm='bash "safely-remove.sh"'
+alias rv='bash "remove-viminfo.sh"'
+alias rd='bash "rebuild-dry.sh"'
+alias rs='bash "rebuild-switch.sh"'
+alias ru='bash "rebuild-upgrade.sh"'
+alias rb='bash "rebuild-boot.sh"'
+alias rp='bash "reboot-prompt.sh"'
 EOF
