@@ -114,7 +114,7 @@
     pkgs."alacritty"
     pkgs."git"
     pkgs."chromium"
-    pkgs."btop"
+    pkgs."htop"
     pkgs."xwallpaper"
     pkgs."zip"
     pkgs."unzip"
