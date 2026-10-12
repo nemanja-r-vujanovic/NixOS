@@ -2,7 +2,7 @@
 set -euo pipefail
 
 cat > "$HOME/.bash_aliases" <<'EOF'
-alias cc='bash "$HOME/nixos-sync/maintenance/"clean-junk.sh"'
+alias cc='bash "$HOME/nixos-sync/maintenance/clean-junk.sh"'
 alias rm='bash "$HOME/nixos-sync/maintenance/safely-remove.sh"'
 alias rv='bash "$HOME/nixos-sync/maintenance/remove-viminfo.sh"'
 alias rd='bash "$HOME/nixos-sync/maintenance/rebuild-dry.sh"'
