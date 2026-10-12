@@ -12,6 +12,54 @@ bindsym $mod+c exec chromium
 bindsym $mod+p exec pcmanfm
 bindsym $mod+m exec rofi -show drun
 
+# Maximize:
+bindsym Shift+f fullscreen enable
+
+# Unmaximize:
+bindsym Shift+s fullscreen disable; \
+	resize set 75 ppt 75 ppt; \
+	move position center
+
+# Top half:
+bindsym Shift+w fullscreen disable; \
+	resize set 100 ppt 50 ppt; \
+	move position 0 ppt 0 ppt
+
+# Bottom half:
+bindsym Shift+x fullscreen disable; \
+	resize set 100 ppt 50 ppt; \
+	move position 0 ppt 50 ppt
+
+# Left half:
+bindsym Shift+a fullscreen disable; \
+	resize set 50 ppt 100 ppt; \
+	move position 0 ppt 0 ppt
+
+# Right half:
+bindsym Shift+d fullscreen disable; \
+	resize set 50 ppt 100 ppt; \
+	move position 50 ppt 0 ppt
+
+# Top-left
+bindsym Shift+q fullscreen disable; \
+	resize set 50 ppt 50 ppt; \
+	move position 0 ppt 0 ppt
+
+# Bottom-left
+bindsym Shift+y fullscreen disable; \
+	resize set 50 ppt 50 ppt; \
+	move position 0 ppt 50 ppt
+
+# Top-right
+bindsym Shift+e fullscreen disable; \
+	resize set 50 ppt 50 ppt; \
+	move position 50 ppt 0 ppt
+
+# Bottom-right
+bindsym Shift+c fullscreen disable; \
+	resize set 50 ppt 50 ppt; \
+	move position 50 ppt 50 ppt
+
 bar
 {
     status_command i3status
