@@ -40,10 +40,10 @@
 * station wlan0 connect "enter ssid"
 * (enter password)
 * exit
-* ping -c 1 "www.google.com" # If not connected, "Temporary failure in name resolution"
+* ping -c 1 "www.google.com" # If not connected: "Temporary failure in name resolution"
 
 ## 8. Installation
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * chmod +x "NixOS/install.sh"
-* vim "NixOS/install.sh"
+* vim "NixOS/install.sh"     # Automated install: ":46,127d"
 * sudo ./"NixOS/install.sh"
