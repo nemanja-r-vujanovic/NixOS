@@ -133,6 +133,7 @@
     pkgs."gcc"
     pkgs."python3"
     pkgs."picom"
+    pkgs."scrot"
     pkgs.lxqt."lxqt-policykit"
   ];
 
