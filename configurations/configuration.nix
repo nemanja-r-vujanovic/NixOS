@@ -128,6 +128,9 @@
     pkgs."pcmanfm"
     pkgs."pfetch"
     pkgs."glib"
+    pkgs."bash"
+    pkgs."gcc"
+    pkgs."python3"
     pkgs.lxqt."lxqt-policykit"
   ];
 
