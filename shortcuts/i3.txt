@@ -21,3 +21,8 @@ Super + Shift + Down  = Move window to bottom
 Super + Shift + 2     = Move window to workspace 2
 Super + Shift + Space = Toggle tiling
 Super + Shift + R     = Restart i3
+Super + Shift + C     = Reload configs
+
+Super + C             = Start chromium
+Super + P             = Start pcmanfm
+Super + T             = Transparent alacritty
