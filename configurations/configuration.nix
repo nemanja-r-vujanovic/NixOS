@@ -119,7 +119,6 @@
     pkgs."alacritty"
     pkgs."git"
     pkgs."chromium"
-    pkgs."firejail"
     pkgs."htop"
     pkgs."xwallpaper"
     pkgs."zip"
