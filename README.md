@@ -46,4 +46,4 @@
 * git clone "https://github.com/nemanja-r-vujanovic/NixOS.git"
 * chmod +x "NixOS/install.sh"
 * vim "NixOS/install.sh"     # Automated install: ":46,127d"
-* sudo ./"NixOS/install.sh"
+* sudo bash "NixOS/install.sh"
