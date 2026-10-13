@@ -260,13 +260,11 @@ mkdir -p "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/scripts/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/wallpapers/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/maintenance/" "/mnt/home/$username/nixos-sync/"
-
-mkdir -p "/mnt/home/$username/apps/"
-mv "/mnt/home/$username/NixOS/apps/" "/mnt/home/$username/"
+mv "/mnt/home/$username/NixOS/apps/" "/mnt/home/$username/nixos-sync/"
 
 chmod +x "/mnt/home/$username/nixos-sync/scripts/"*".sh"
 chmod +x "/mnt/home/$username/nixos-sync/maintenance/"*".sh"
-chmod +x "/mnt/home/$username/apps/sandbox/scripts/"*".sh"
+chmod +x "/mnt/home/$username/nixos-sync/apps/sandbox/scripts/"*".sh"
 
 rm -r "/mnt/home/$username/NixOS/"
 
