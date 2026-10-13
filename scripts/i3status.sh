@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mkdir -p "$HOME/.config/i3status/"
-
 cat > "$HOME/.config/i3status/config" <<'EOF'
 general
 {
