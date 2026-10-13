@@ -110,6 +110,7 @@
   };
 
   programs.firefox.enable = false;
+  programs.firejail.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages =
