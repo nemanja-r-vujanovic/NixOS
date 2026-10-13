@@ -3,4 +3,4 @@
 * Super + D
 * alacritty
 * Ctrl + +
-* ./"nixos-sync/scripts/1_run.sh"
+* bash "$HOME/nixos-sync/scripts/1_run.sh"
