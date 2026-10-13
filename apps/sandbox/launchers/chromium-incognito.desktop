@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Incognito Chromium
+Exec=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/scripts/chromium-incognito.sh
+Icon=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/icons/chromium-incognito.png
+Type=Application
+Terminal=false
+GenericName=
+Comment=
+Categories=Network;
