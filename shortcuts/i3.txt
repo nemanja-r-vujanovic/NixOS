@@ -26,3 +26,4 @@ Super + Shift + C     = Reload configs
 Super + C             = Start chromium
 Super + P             = Start pcmanfm
 Super + T             = Transparent alacritty
+Super + Print         = Screenshot
