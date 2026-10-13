@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Sandboxed Chromium
-Exec=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/scripts/chromium-sandboxed.sh
-Icon=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/icons/chromium-sandboxed.png
+Exec=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/scripts/chromium-sandboxed.sh
+Icon=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/icons/chromium-sandboxed.png
 Type=Application
 Terminal=false
 GenericName=

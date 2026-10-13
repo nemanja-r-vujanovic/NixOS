@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Chromium
-Exec=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/scripts/chromium-standard.sh
-Icon=/home/USERNAME_TO_BE_CHANGED/apps/sandbox/icons/chromium-standard.png
+Exec=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/scripts/chromium-standard.sh
+Icon=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/icons/chromium-standard.png
 Type=Application
 Terminal=false
 GenericName=
