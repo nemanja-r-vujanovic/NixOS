@@ -131,6 +131,7 @@
     pkgs."bash"
     pkgs."gcc"
     pkgs."python3"
+    # pkgs."picom"
     pkgs.lxqt."lxqt-policykit"
   ];
 
