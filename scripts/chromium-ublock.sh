@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-sudo mkdir -p "/etc/chromium/policies/managed/"
 sudo tee "/etc/chromium/policies/managed/extensions.json" <<'EOF'
 {
 	"ExtensionSettings":
