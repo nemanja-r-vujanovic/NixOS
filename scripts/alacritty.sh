@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mkdir -p "$HOME/.config/alacritty/"
 echo -n "[font]
 size = 30" > "$HOME/.config/alacritty/alacritty.toml"
 
