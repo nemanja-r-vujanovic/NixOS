@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+./"nixos-sync/scripts/mkdirs.sh"
+# ...
 ./"nixos-sync/scripts/vim.sh"
 ./"nixos-sync/scripts/bashrc.sh"
 ./"nixos-sync/scripts/alacritty.sh"
