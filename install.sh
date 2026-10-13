@@ -261,6 +261,9 @@ mv "/mnt/home/$username/NixOS/scripts/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/wallpapers/" "/mnt/home/$username/nixos-sync/"
 mv "/mnt/home/$username/NixOS/maintenance/" "/mnt/home/$username/nixos-sync/"
 
+mkdir -p "/mnt/home/$username/apps/"
+mv "/mnt/home/$username/NixOS/apps/" "/mnt/home/$username/"
+
 chmod +x "/mnt/home/$username/nixos-sync/scripts/"*".sh"
 chmod +x "/mnt/home/$username/nixos-sync/maintenance/"*".sh"
 chmod +x "/mnt/home/$username/apps/sandbox/scripts/"*".sh"
