@@ -2,7 +2,10 @@
 set -euo pipefail
 
 echo -n "[font]
-size = 30" > "$HOME/.config/alacritty/alacritty.toml"
+size = 30
+
+[window]
+opacity = 0.6" > "$HOME/.config/alacritty/alacritty.toml"
 
 echo "Reload configs: Super + Shift + C"
 
