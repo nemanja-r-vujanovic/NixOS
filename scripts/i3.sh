@@ -12,8 +12,8 @@ exec --no-startup-id lxqt-policykit-agent
 
 bindsym $mod+c exec chromium
 bindsym $mod+p exec pcmanfm
-bindsym $mod+t exec --no-startup-id picom --backend xrender
 bindsym $mod+Print exec --no-startup-id scrot "$HOME/screenshots/screen_$(date +%d-%m-%Y_%H-%M-%S).png"
+bindsym $mod+t exec --no-startup-id picom --backend xrender
 
 bar
 {
