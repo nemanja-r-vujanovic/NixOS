@@ -2,6 +2,7 @@
 set -euo pipefail
 
 cat > "$HOME/.bash_aliases" <<'EOF'
+alias ls='bash "$HOME/nixos-sync/maintenance/ls.sh"'
 alias cc='bash "$HOME/nixos-sync/maintenance/clean-junk.sh"'
 alias rm='bash "$HOME/nixos-sync/maintenance/safely-remove.sh"'
 alias rv='bash "$HOME/nixos-sync/maintenance/remove-viminfo.sh"'
@@ -10,5 +11,7 @@ alias rs='bash "$HOME/nixos-sync/maintenance/rebuild-switch.sh"'
 alias ru='bash "$HOME/nixos-sync/maintenance/rebuild-upgrade.sh"'
 alias rb='bash "$HOME/nixos-sync/maintenance/rebuild-boot.sh"'
 alias rp='bash "$HOME/nixos-sync/maintenance/reboot-prompt.sh"'
-alias sr='python3 "$HOME/nixos-sync/apps/sandbox/scripts/restore-sandbox.py"'
+alias sr='bash "$HOME/nixos-sync/maintenance/restore-sandboxed.sh"'
+alias fls='bash "$HOME/nixos-sync/maintenance/firejail-ls.sh"'
+alias grep='bash "$HOME/nixos-sync/maintenance/grep.sh"'
 EOF
