@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Sandboxed qBittorrent
-Exec=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/scripts/qbittorrent-sandboxed.sh
-Icon=/home/USERNAME_TO_BE_CHANGED/nixos-sync/apps/sandbox/icons/qbittorrent-standard.png
-Type=Application
-Terminal=false
-GenericName=
-Comment=
-Categories=Network;
