@@ -222,10 +222,6 @@ nixos-generate-config --root "/mnt/"
 
 git clone "https://github.com/nemanja-r-vujanovic/NixOS.git" "/tmp/NixOS/"
 
-rm "/tmp/NixOS/apps/sandbox/icons/qbittorrent-standard.png"
-rm "/tmp/NixOS/apps/sandbox/launchers/qbittorrent-sandboxed.desktop"
-rm "/tmp/NixOS/apps/sandbox/scripts/qbittorrent-sandboxed.sh"
-
 sed -i "s|DISK_TO_BE_CHANGED|$disk|g" "/tmp/NixOS/configurations/configuration.nix"
 sed -i "s|TIMEZONE_TO_BE_CHANGED|$timezone|g" "/tmp/NixOS/configurations/configuration.nix"
 sed -i "s|USERNAME_TO_BE_CHANGED|$username|g" "/tmp/NixOS/configurations/configuration.nix"
