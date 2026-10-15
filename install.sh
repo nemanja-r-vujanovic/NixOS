@@ -261,6 +261,7 @@ mv "/mnt/home/$username/NixOS/apps/" "/mnt/home/$username/nixos-sync/"
 chmod +x "/mnt/home/$username/nixos-sync/scripts/"*".sh"
 chmod +x "/mnt/home/$username/nixos-sync/maintenance/"*".sh"
 chmod +x "/mnt/home/$username/nixos-sync/apps/sandbox/scripts/"*".sh"
+chmod +x "/mnt/home/$username/nixos-sync/apps/scripts/"*".sh"
 
 rm -r "/mnt/home/$username/NixOS/"
 
