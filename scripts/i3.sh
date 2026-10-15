@@ -9,6 +9,7 @@ sed -i "s|#font pango:DejaVu Sans Mono 8|font pango:DejaVu Sans 20|g" "$HOME/.co
 cat >> "$HOME/.config/i3/config" <<'EOF'
 
 exec --no-startup-id lxqt-policykit-agent
+exec --no-startup-id dunst
 
 bindsym $mod+c exec chromium
 bindsym $mod+p exec pcmanfm
