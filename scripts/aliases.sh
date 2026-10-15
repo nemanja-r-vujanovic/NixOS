@@ -10,4 +10,5 @@ alias rs='bash "$HOME/nixos-sync/maintenance/rebuild-switch.sh"'
 alias ru='bash "$HOME/nixos-sync/maintenance/rebuild-upgrade.sh"'
 alias rb='bash "$HOME/nixos-sync/maintenance/rebuild-boot.sh"'
 alias rp='bash "$HOME/nixos-sync/maintenance/reboot-prompt.sh"'
+alias sr='python3 "$HOME/nixos-sync/apps/sandbox/scripts/restore-sandbox.py"'
 EOF
