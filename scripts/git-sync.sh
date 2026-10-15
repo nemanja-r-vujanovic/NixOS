@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+sudo cp "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
+
 sudo mv "/etc/nixos/" "$HOME/nixos-sync/"
-sudo mv "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
 mv "$HOME/.vimrc" "$HOME/nixos-sync/"
 mv "$HOME/.bashrc" "$HOME/nixos-sync/"
 mv "$HOME/.bash_aliases" "$HOME/nixos-sync/"
@@ -13,7 +14,6 @@ mv "$HOME/.config/pcmanfm/" "$HOME/nixos-sync/"
 mv "$HOME/.config/libfm/" "$HOME/nixos-sync/"
 
 sudo ln -s -T "$HOME/nixos-sync/nixos" "/etc/nixos"
-sudo ln -s -T "$HOME/nixos-sync/managed" "/etc/chromium/policies/managed"
 ln -s -T "$HOME/nixos-sync/.vimrc" "$HOME/.vimrc"
 ln -s -T "$HOME/nixos-sync/.bashrc" "$HOME/.bashrc"
 ln -s -T "$HOME/nixos-sync/.bash_aliases" "$HOME/.bash_aliases"
