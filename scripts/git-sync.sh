@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-sudo cp "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
+sudo cp -r "/etc/chromium/policies/managed/" "$HOME/nixos-sync/"
 
 sudo mv "/etc/nixos/" "$HOME/nixos-sync/"
 mv "$HOME/.vimrc" "$HOME/nixos-sync/"
