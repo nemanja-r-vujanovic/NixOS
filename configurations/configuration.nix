@@ -77,9 +77,14 @@
   ];
 
   # Enable services.
+  security.polkit.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  security.polkit.enable = true;
+  services.dunst =
+  {
+    enable = true;
+    settings.global.font = "DejaVu Sans 20";
+  };
 
   # Enable CUPS for printing.
   # services.printing.enable = true;
@@ -116,6 +121,7 @@
   environment.systemPackages =
   [
     pkgs."sudo"
+    pkgs."dejavu_fonts"
     pkgs."vim"
     pkgs."alacritty"
     pkgs."git"
@@ -134,6 +140,7 @@
     pkgs."python3"
     pkgs."picom"
     pkgs."scrot"
+    pkgs."libnotify"
     pkgs.lxqt."lxqt-policykit"
   ];
 
