@@ -8,8 +8,8 @@ sed -i "s|#font pango:DejaVu Sans Mono 8|font pango:DejaVu Sans 20|g" "$HOME/.co
 
 cat >> "$HOME/.config/i3/config" <<'EOF'
 
-exec --no-startup-id "$HOME/nixos-sync/apps/sandbox/scripts/policykit.sh"
-exec --no-startup-id "$HOME/nixos-sync/apps/sandbox/scripts/dunst.sh"
+exec --no-startup-id "$HOME/nixos-sync/apps/scripts/policykit.sh"
+exec --no-startup-id "$HOME/nixos-sync/apps/scripts/dunst.sh"
 
 bindsym $mod+c exec "$HOME/nixos-sync/apps/sandbox/scripts/chromium-standard.sh"
 bindsym $mod+i exec "$HOME/nixos-sync/apps/sandbox/scripts/chromium-incognito.sh"
