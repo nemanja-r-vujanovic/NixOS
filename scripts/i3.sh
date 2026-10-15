@@ -8,13 +8,15 @@ sed -i "s|#font pango:DejaVu Sans Mono 8|font pango:DejaVu Sans 20|g" "$HOME/.co
 
 cat >> "$HOME/.config/i3/config" <<'EOF'
 
-exec --no-startup-id lxqt-policykit-agent
-exec --no-startup-id dunst
+exec --no-startup-id "$HOME/nixos-sync/apps/sandbox/scripts/policykit.sh"
+exec --no-startup-id "$HOME/nixos-sync/apps/sandbox/scripts/dunst.sh"
 
-bindsym $mod+c exec chromium
-bindsym $mod+p exec pcmanfm
-bindsym $mod+Print exec --no-startup-id scrot "$HOME/screenshots/screen_$(date +%d-%m-%Y_%H-%M-%S).png"
-bindsym $mod+t exec --no-startup-id picom --backend xrender
+bindsym $mod+c exec "$HOME/nixos-sync/apps/sandbox/scripts/chromium-standard.sh"
+bindsym $mod+i exec "$HOME/nixos-sync/apps/sandbox/scripts/chromium-incognito.sh"
+bindsym $mod+b exec "$HOME/nixos-sync/apps/sandbox/scripts/chromium-sandboxed.sh"
+bindsym $mod+p exec "$HOME/nixos-sync/apps/scripts/pcmanfm.sh"
+bindsym $mod+Print exec --no-startup-id "$HOME/nixos-sync/apps/scripts/scrot.sh"
+bindsym $mod+t exec --no-startup-id "$HOME/nixos-sync/apps/scripts/picom.sh"
 
 bar
 {
