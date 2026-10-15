@@ -9,6 +9,6 @@ set -euo pipefail
   $(readlink -f $(command -v chromium)) \
   --no-remote \
   --password-store=basic \
-  --no-first-run &
+  --no-first-run
 
 bash "$HOME/nixos-sync/apps/sandbox/scripts/check-sandbox.sh"
