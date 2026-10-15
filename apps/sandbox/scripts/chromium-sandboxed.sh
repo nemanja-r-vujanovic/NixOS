@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+notify-send -t 3000 "Sandbox is running."
+
 /run/wrappers/bin/firejail \
   --dns=8.8.8.8 \
   --name=sandbox \
