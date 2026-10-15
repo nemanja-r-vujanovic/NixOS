@@ -3,6 +3,8 @@ set -euo pipefail
 
 # Ventoy ...
 
+rm "$HOME/.viminfo"
+
 rm -r "$HOME/.copilot/"
 rm -r "$HOME/thunderbird/"
 rm -r "$HOME/ViberDownloads/PTT/"
