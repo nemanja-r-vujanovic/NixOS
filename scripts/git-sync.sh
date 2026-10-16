@@ -25,6 +25,6 @@ ln -s -T "$HOME/nixos-sync/libfm" "$HOME/.config/libfm"
 
 ls -a -l "$HOME/.config/"
 
-echo -n "Press Enter to exit."
+echo -e -n "\nPress Enter to exit."
 read Enter
 echo
