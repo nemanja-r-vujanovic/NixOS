@@ -195,7 +195,7 @@ mount -t ext4 "$P5" "/mnt/"
 mount --mkdir -o umask=0077 "$P1" "/mnt/boot/"
 swapon "$P3"
 
-lsblk "$disk"                  # Show result
+lsblk "$disk"                 # Show result
 
 echo -e "\nPartitioning completed.\nInstallation starts in 7 seconds..."
 sleep 7
