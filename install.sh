@@ -266,7 +266,7 @@ chmod +x "/mnt/home/$username/nixos-sync/apps/scripts/"*".sh"
 rm -r "/mnt/home/$username/NixOS/"
 
 # Fix ownership:
-nixos-enter --root "/mnt" -c "chown -R $username:users /home/$username/"
+nixos-enter --root "/mnt/" -c "chown -R $username:users /home/$username/"
 
 unset username
 
@@ -274,7 +274,7 @@ unset username
 # 11. POWEROFF
 
 swapoff -a
-umount -R "/mnt"
+umount -R "/mnt/"
 systemctl poweroff
 
 # ------------------------------------------------------------------------------------------
