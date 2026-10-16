@@ -7,7 +7,7 @@
 ## 4. Bootable USB
 ### Ventoy:
 * Ventoy install
-* Copy / Paste
+* Paste
 * Update
 
 ### dd:
@@ -15,7 +15,7 @@
 * sudo dd if="nixos-minimal-x86_64.iso" of="/dev/sda" status=progress && systemctl poweroff
 
 ## 5. Boot
-### BIOS/UEFI Setup: F2
+### UEFI/BIOS Setup: F2
 * Setup Defaults: F9
 * Wireless LAN: Enabled
 * Flip to Boot: Disabled
