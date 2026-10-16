@@ -23,6 +23,8 @@ ln -s -T "$HOME/nixos-sync/i3status" "$HOME/.config/i3status"
 ln -s -T "$HOME/nixos-sync/pcmanfm" "$HOME/.config/pcmanfm"
 ln -s -T "$HOME/nixos-sync/libfm" "$HOME/.config/libfm"
 
+ls -a -l "/etc/"
+ls -a -l "$HOME/"
 ls -a -l "$HOME/.config/"
 
 echo -e -n "\nPress Enter to exit."
