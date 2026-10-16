@@ -1,4 +1,4 @@
-Super + Enter         = Open terminal
+Super + Enter         = Open alacritty
 
 Shift + +             = Increase font (i3)
 Shift + -             = Decrease font (i3)
@@ -13,7 +13,7 @@ Super + Right         = Switch to right window
 Alt + F4              = Close app
 Ctrl + Q              = Close pcmanfm
 
-Super + Shift + Q     = Close terminal
+Super + Shift + Q     = Close alacritty
 Super + Shift + Left  = Move window to left
 Super + Shift + Right = Move window to right
 Super + Shift + Up    = Move window to top
