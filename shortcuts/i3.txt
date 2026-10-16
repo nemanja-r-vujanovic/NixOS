@@ -1,11 +1,8 @@
 Super + Enter         = Open alacritty
+Ctrl + +              = Increase font in alacritty
+Ctrl + -              = Decrease font in alacritty
 
-Shift + +             = Increase font (i3)
-Shift + -             = Decrease font (i3)
-Ctrl + +              = Increase font (alacritty)
-Ctrl + -              = Decrease font (alacritty)
-
-Super + D             = Run prompt
+Super + D             = Open dmenu
 Super + 2             = New workspace
 Super + Left          = Switch to left window
 Super + Right         = Switch to right window
