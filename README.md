@@ -6,7 +6,7 @@
 
 ## 4. Bootable USB
 ### Ventoy:
-* Ventoy install
+* Install
 * Paste
 * Update
 
