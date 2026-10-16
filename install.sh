@@ -239,8 +239,8 @@ unset hostname
 
 nixos-install --no-root-passwd
 
-printf '%s:%s\n' "root" "$password" | nixos-enter --root /mnt -c chpasswd
-printf '%s:%s\n' "$username" "$password" | nixos-enter --root /mnt -c chpasswd
+printf '%s:%s\n' "root" "$password" | nixos-enter --root "/mnt/" -c chpasswd
+printf '%s:%s\n' "$username" "$password" | nixos-enter --root "/mnt/" -c chpasswd
 
 unset password
 unset confirm_password
